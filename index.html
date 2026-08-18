@@ -43,9 +43,9 @@
 }
 
 [data-theme="dark"]{
-  --parchment:#000000;
-  --parchment-2:#000000;
-  --card:#000000;
+  --parchment:#1C140D;
+  --parchment-2:#241A11;
+  --card:#241A11;
   --ink:#F3E5C3;
   --ink-soft:#D8C7A3;
   --border-line: rgba(243,229,195,0.18);
@@ -676,7 +676,7 @@ footer{background:var(--ink); color:var(--parchment); margin-top:60px; padding:4
    Google Drive / hosted PDF link to enable direct download.
    ========================================================== */
 
-const ASSIGNMENTS = [
+let ASSIGNMENTS = [
   {id:'a1', subject:'Botany', semester:'3', course:'B.Sc.', title:'Plant Anatomy — Assignment 2', date:'2026-08-01', desc:'Structure and function of plant tissues, with labelled diagrams.', pdfLink:'', isNew:true},
   {id:'a2', subject:'Zoology', semester:'3', course:'B.Sc.', title:'Animal Physiology — Assignment 1', date:'2026-07-28', desc:'Digestive and circulatory systems in vertebrates.', pdfLink:'materials/zoology-sem3-a1.pdf', isNew:true},
   {id:'a3', subject:'Physics', semester:'1', course:'B.Sc.', title:'Mechanics — Problem Set 1', date:'2026-07-20', desc:'Laws of motion, friction and simple harmonic motion problems.', pdfLink:'materials/physics-sem1-a1.pdf', isNew:false},
@@ -697,7 +697,7 @@ const ASSIGNMENTS = [
   {id:'a18', subject:'Computer Science', semester:'6', course:'B.Sc.', title:'Data Structures — Assignment 2', date:'2026-05-15', desc:'Linked lists, stacks and queues implementation tasks.', pdfLink:'materials/cs-sem6-a2.pdf', isNew:false},
 ];
 
-const NOTES = [
+let NOTES = [
   {id:'n1', subject:'Botany', teacher:'Dr. R. K. Jha', semester:'3', fileType:'PDF', title:'Plant Anatomy — Full Notes', pdfLink:'materials/botany-sem3-notes.pdf', isNew:true},
   {id:'n2', subject:'Zoology', teacher:'Dr. S. Mishra', semester:'3', fileType:'PDF', title:'Animal Physiology Notes', pdfLink:'', isNew:false},
   {id:'n3', subject:'Physics', teacher:'Prof. A. Thakur', semester:'1', fileType:'PDF', title:'Mechanics — Unit Notes', pdfLink:'materials/physics-sem1-notes.pdf', isNew:false},
@@ -712,7 +712,7 @@ const NOTES = [
   {id:'n12', subject:'Environmental Science', teacher:'Dr. M. Kumari', semester:'2', fileType:'PDF', title:'Ecosystem Notes', pdfLink:'', isNew:false},
 ];
 
-const LIBRARY = [
+let LIBRARY = [
   {id:'l1', title:'NCERT Botany Reference', subject:'Botany', semester:'1', size:'4.2 MB', pdfLink:'', isNew:false},
   {id:'l2', title:'Concepts of Physics Vol 1', subject:'Physics', semester:'1', size:'12 MB', pdfLink:'materials/physics-book1.pdf', isNew:false},
   {id:'l3', title:'Organic Chemistry Reference', subject:'Chemistry', semester:'3', size:'8.5 MB', pdfLink:'', isNew:true},
@@ -723,7 +723,7 @@ const LIBRARY = [
   {id:'l8', title:'Genetics Reference Guide', subject:'Zoology', semester:'5', size:'7.2 MB', pdfLink:'materials/zoology-book1.pdf', isNew:false},
 ];
 
-const PAPERS = [
+let PAPERS = [
   {id:'p1', year:'2026', subject:'Botany', semester:'3', pdfLink:'', isNew:true},
   {id:'p2', year:'2025', subject:'Zoology', semester:'3', pdfLink:'materials/zoology-sem3-2025.pdf', isNew:false},
   {id:'p3', year:'2025', subject:'Physics', semester:'1', pdfLink:'', isNew:false},
@@ -736,7 +736,7 @@ const PAPERS = [
   {id:'p10', year:'2022', subject:'Mathematics', semester:'6', pdfLink:'materials/maths-sem6-2022.pdf', isNew:false},
 ];
 
-const NOTIFICATIONS = [
+let NOTIFICATIONS = [
   {id:'nt1', title:'Semester 5 & 6 Internal Exam Routine Released', date:'2026-08-15', category:'Exam', desc:'Internal exam routine for Semester 5 and 6 students is now available. Check dates carefully.', attachment:'', isNew:true},
   {id:'nt2', title:'Semester 3 Practical Exam Schedule', date:'2026-08-10', category:'Exam', desc:'Practical exams for Botany and Zoology begin next week. Report to lab 30 minutes early.', attachment:'', isNew:true},
   {id:'nt3', title:'Library Timing Extended', date:'2026-08-05', category:'General', desc:'Central library will remain open till 7 PM on weekdays during exam season.', attachment:'', isNew:false},
@@ -746,6 +746,120 @@ const NOTIFICATIONS = [
   {id:'nt7', title:'Scholarship Form Deadline Extended', date:'2026-07-08', category:'General', desc:'Last date to submit state scholarship forms extended by one week.', attachment:'', isNew:false},
   {id:'nt8', title:'Semester 1 Orientation Schedule', date:'2026-07-01', category:'General', desc:'Orientation for newly admitted Semester 1 students will be held in the main auditorium.', attachment:'', isNew:false},
 ];
+
+/* ==========================================================
+   LIVE CONTENT FROM GOOGLE SHEET (optional "admin panel")
+   ==========================================================
+   Paste your published-to-web CSV link below and the site will
+   load ALL content from your Google Sheet instead of the sample
+   data above — update the Sheet any time, no code editing, no
+   re-uploading to GitHub ever again.
+
+   Setup (one-time):
+   1. Make a copy of the template sheet (link in the chat / see
+      kvsc-sheet-template.csv) with columns:
+      type | subject | semester | title | description | date | extra | link | new
+   2. In Google Sheets: File -> Share -> Publish to web
+      -> choose the sheet tab -> format "Comma-separated values (.csv)" -> Publish
+   3. Copy the link it gives you and paste it below between the quotes.
+
+   Leave it as '' (empty) to keep using the sample data above.
+   ========================================================== */
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRjdAqv0r9HpR7dXoHqB4QbbH-EVvo_kFbvGv5K2pCQhOMpU8ZMVm1Oz3h2G7F-qba2xAKNnTwUpZpV/pub?output=csv';
+
+function flatKey(s){ return (s || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+
+function parseCSV(text){
+  const rows = [];
+  let i = 0, field = '', row = [], inQuotes = false;
+  while(i < text.length){
+    const c = text[i];
+    if(inQuotes){
+      if(c === '"'){
+        if(text[i+1] === '"'){ field += '"'; i += 2; continue; }
+        inQuotes = false; i++; continue;
+      }
+      field += c; i++; continue;
+    }
+    if(c === '"'){ inQuotes = true; i++; continue; }
+    if(c === ','){ row.push(field); field = ''; i++; continue; }
+    if(c === '\r'){ i++; continue; }
+    if(c === '\n'){ row.push(field); rows.push(row); row = []; field = ''; i++; continue; }
+    field += c; i++;
+  }
+  if(field.length || row.length){ row.push(field); rows.push(row); }
+  if(!rows.length) return [];
+  // Flat keys so header spelling/spacing/punctuation doesn't matter:
+  // "Pdf link" -> pdflink, "Category " -> category, "Discription " -> discription, etc.
+  const headers = rows[0].map(h => flatKey(h));
+  return rows.slice(1)
+    .filter(r => r.some(v => (v || '').trim() !== ''))
+    .map(r => {
+      const obj = {};
+      headers.forEach((h, idx) => obj[h] = (r[idx] || '').trim());
+      return obj;
+    });
+}
+
+function buildFromSheetRows(rows){
+  const out = {assignments:[], notes:[], library:[], papers:[], notifications:[]};
+  rows.forEach((r, i) => {
+    // Supports either the original template headers (type/description/date/link/extra/new)
+    // OR a Google Form response sheet (Timestamp/Category/Semester/Subject/Title/Discription/Pdf link).
+    const t = (r.type || r.category || '').toLowerCase();
+    const link = r.link || r.pdflink || '';
+    const semester = r.semester || '';
+    const subject = r.subject || '';
+    const title = r.title || '';
+    const desc = r.description || r.discription || r.desc || '';
+    const extra = r.extra || '';
+    const rawDate = r.date || r.timestamp || '';
+    const parsedTs = rawDate ? new Date(rawDate) : null;
+    const tsValid = parsedTs && !isNaN(parsedTs.getTime());
+    const isoDate = tsValid ? parsedTs.toISOString().slice(0, 10) : (rawDate.split(' ')[0] || '2026-01-01');
+    const year = tsValid ? String(parsedTs.getFullYear()) : (rawDate.split(/[-\/]/)[0] || extra || '—');
+    // If there's no explicit "new" column, auto-mark items added in the last 14 days as New.
+    const isNew = r.new
+      ? /^(true|yes|1)$/i.test(r.new)
+      : (tsValid && (Date.now() - parsedTs.getTime()) < 14 * 24 * 60 * 60 * 1000);
+    const id = 'sh' + i;
+    if(t.startsWith('assign')){
+      out.assignments.push({id, subject, semester, course:'B.Sc.', title, date: isoDate, desc, pdfLink:link, isNew});
+    } else if(t.startsWith('note')){
+      out.notes.push({id, subject, teacher: extra || '—', semester, fileType:'PDF', title, pdfLink:link, isNew});
+    } else if(t.startsWith('pdf') || t.startsWith('lib') || t.startsWith('book')){
+      out.library.push({id, title, subject, semester, size: extra || '—', pdfLink:link, isNew});
+    } else if(t.startsWith('paper') || t.startsWith('question')){
+      out.papers.push({id, year, subject, semester, pdfLink:link, isNew});
+    } else if(t.startsWith('notif')){
+      out.notifications.push({id, title, date: isoDate, category: extra || 'General', desc, attachment: link, isNew});
+    }
+  });
+  return out;
+}
+
+async function tryLoadFromSheet(){
+  if(!SHEET_CSV_URL) return false;
+  try{
+    const bust = (SHEET_CSV_URL.includes('?') ? '&' : '?') + 'cachebust=' + Date.now();
+    const res = await fetch(SHEET_CSV_URL + bust);
+    if(!res.ok) throw new Error('Sheet fetch failed: ' + res.status);
+    const text = await res.text();
+    const rows = parseCSV(text);
+    const built = buildFromSheetRows(rows);
+    const total = built.assignments.length + built.notes.length + built.library.length + built.papers.length + built.notifications.length;
+    if(total === 0) return false;
+    ASSIGNMENTS = built.assignments;
+    NOTES = built.notes;
+    LIBRARY = built.library;
+    PAPERS = built.papers;
+    NOTIFICATIONS = built.notifications;
+    return true;
+  }catch(e){
+    console.warn('KVSC: could not load Google Sheet, showing built-in sample content instead.', e);
+    return false;
+  }
+}
 
 /* ========================================================== */
 
@@ -1035,8 +1149,11 @@ document.getElementById('quickFormSend').addEventListener('click', ()=>{
 
 document.getElementById('year').textContent = new Date().getFullYear();
 initTheme();
-renderAll();
-applyFilters();
+(async function init(){
+  await tryLoadFromSheet(); // falls back to built-in sample data automatically if not set up / offline
+  renderAll();
+  applyFilters();
+})();
 </script>
 </body>
 </html>
