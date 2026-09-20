@@ -1,402 +1,556 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi" data-theme="mithila">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KVSC Study Materials — By Sagar | KVSC College Uchhaith, Benipatti</title>
-<meta name="description" content="KVSC College (Kalidas Vidyapati Science College), Uchhaith, Benipatti — download assignments, notes, PDFs, previous year question papers and stay updated with notifications, all in one place.">
-<meta property="og:title" content="KVSC Study Materials — One Place for Assignments, Notes & Notifications">
+<meta name="description" content="KVSC College (Kalidas Vidyapati Science College), Uchhaith, Benipatti — assignments, notes, PDFs, question papers and notifications.">
+<meta property="og:title" content="KVSC Study Materials — Assignments, Notes & Notifications">
 <meta property="og:description" content="Assignments, notes, PDFs, question papers and notices for KVSC College students.">
 <meta property="og:image" content="https://i.ibb.co/8gJ0bRh2/Picsart-26-08-05-20-45-24-862.png">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://i.ibb.co/8gJ0bRh2/Picsart-26-08-05-20-45-24-862.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Inter:wght@400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
-   KVSC STUDY MATERIALS — "Sindoor & Parchment" design system
-   Mithila (Madhubani) folk-art theme. Edit CONTENT DATA in the
-   <script> block near the bottom to add/change resources.
+   KVSC STUDY MATERIALS v2 — 6-Theme System
+   Mithila folk-art heritage portal
    ============================================================ */
 
-:root{
-  --parchment:#F3E5C3;
-  --parchment-2:#EADFB8;
-  --card:#FBF3DE;
-  --ink:#2A1F14;
-  --ink-soft:#5A4A38;
-  --sindoor:#C1440E;
-  --sindoor-dark:#9C360A;
-  --peacock:#1B4B6B;
-  --leaf:#5C7A29;
-  --marigold:#E8A33D;
-  --border-line: rgba(42,31,20,0.18);
-  --shadow: 0 10px 30px rgba(42,31,20,0.12);
-  --radius: 16px;
-  --font-display:'Fraunces', serif;
-  --font-body:'Inter', sans-serif;
-  --font-accent:'Yatra One', cursive;
-  --maxw: 1200px;
+/* ===== THEME TOKENS ===== */
+:root, [data-theme="mithila"] {
+  --bg:       #F5E6C8;
+  --bg2:      #EDD8AC;
+  --card:     #FBF3DE;
+  --ink:      #2A1A0E;
+  --ink2:     #5C4030;
+  --accent:   #C1440E;
+  --accent2:  #9C360A;
+  --blue:     #1B4B6B;
+  --green:    #4A7A22;
+  --gold:     #D4922A;
+  --border:   rgba(42,26,14,0.16);
+  --shadow:   0 8px 28px rgba(42,26,14,0.13);
+  --hero-grad: linear-gradient(160deg, #F5E6C8 0%, #EDD8AC 50%, #F0D9B0 100%);
+  --theme-name: "🎨 Mithila";
+}
+[data-theme="dark"] {
+  --bg:       #12090A;
+  --bg2:      #1C1010;
+  --card:     #221515;
+  --ink:      #F0E0C8;
+  --ink2:     #C8A890;
+  --accent:   #E85A20;
+  --accent2:  #C04010;
+  --blue:     #5090C0;
+  --green:    #70A840;
+  --gold:     #E0A840;
+  --border:   rgba(240,224,200,0.14);
+  --shadow:   0 8px 28px rgba(0,0,0,0.45);
+  --hero-grad: linear-gradient(160deg, #12090A 0%, #1C1010 60%, #180E0E 100%);
+  --theme-name: "🌙 Dark";
+}
+[data-theme="blue"] {
+  --bg:       #EBF2FA;
+  --bg2:      #D8E8F5;
+  --card:     #F5FAFF;
+  --ink:      #0A1E30;
+  --ink2:     #2A4A6A;
+  --accent:   #1565C0;
+  --accent2:  #0D47A1;
+  --blue:     #0288D1;
+  --green:    #2E7D32;
+  --gold:     #F57F17;
+  --border:   rgba(10,30,48,0.14);
+  --shadow:   0 8px 28px rgba(21,101,192,0.12);
+  --hero-grad: linear-gradient(160deg, #EBF2FA 0%, #D8E8F5 60%, #E0F0FF 100%);
+  --theme-name: "🔵 Modern Blue";
+}
+[data-theme="green"] {
+  --bg:       #EAF3E8;
+  --bg2:      #D4E9D0;
+  --card:     #F4FAF2;
+  --ink:      #0D2010;
+  --ink2:     #2A5030;
+  --accent:   #2E7D32;
+  --accent2:  #1B5E20;
+  --blue:     #1565C0;
+  --green:    #558B2F;
+  --gold:     #F9A825;
+  --border:   rgba(13,32,16,0.14);
+  --shadow:   0 8px 28px rgba(46,125,50,0.12);
+  --hero-grad: linear-gradient(160deg, #EAF3E8 0%, #D4E9D0 60%, #E0F5D8 100%);
+  --theme-name: "🌿 Forest Green";
+}
+[data-theme="purple"] {
+  --bg:       #F0EAF8;
+  --bg2:      #E0D4F0;
+  --card:     #F8F4FE;
+  --ink:      #180A28;
+  --ink2:     #3A2060;
+  --accent:   #6A1B9A;
+  --accent2:  #4A148C;
+  --blue:     #283593;
+  --green:    #2E7D32;
+  --gold:     #F57F17;
+  --border:   rgba(24,10,40,0.14);
+  --shadow:   0 8px 28px rgba(106,27,154,0.13);
+  --hero-grad: linear-gradient(160deg, #F0EAF8 0%, #E0D4F0 60%, #EEE4FF 100%);
+  --theme-name: "🟣 Royal Purple";
+}
+[data-theme="saffron"] {
+  --bg:       #FFF3E0;
+  --bg2:      #FFE0B2;
+  --card:     #FFFBF2;
+  --ink:      #2A1000;
+  --ink2:     #5A2A00;
+  --accent:   #E65100;
+  --accent2:  #BF360C;
+  --blue:     #1565C0;
+  --green:    #2E7D32;
+  --gold:     #F9A825;
+  --border:   rgba(42,16,0,0.15);
+  --shadow:   0 8px 28px rgba(230,81,0,0.13);
+  --hero-grad: linear-gradient(160deg, #FFF3E0 0%, #FFE0B2 60%, #FFECB3 100%);
+  --theme-name: "🟠 Saffron";
 }
 
-[data-theme="dark"]{
-  --parchment:#1C140D;
-  --parchment-2:#241A11;
-  --card:#241A11;
-  --ink:#F3E5C3;
-  --ink-soft:#D8C7A3;
-  --border-line: rgba(243,229,195,0.18);
-  --shadow: 0 10px 30px rgba(0,0,0,0.4);
+/* ===== BASE ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  transition: background .35s, color .35s;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1,h2,h3,h4 { font-family: 'Fraunces', serif; margin: 0 0 .4em; line-height: 1.2; }
+p { margin: 0 0 .8em; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+section { scroll-margin-top: 80px; }
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex; align-items: center; gap: .4em;
+  padding: .65em 1.25em; border-radius: 8px; border: 2px solid transparent;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: .88rem;
+  cursor: pointer; text-decoration: none; transition: transform .14s, box-shadow .14s, background .14s;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.22); }
+.btn-primary:hover { background: var(--accent2); }
+.btn-outline { background: transparent; border-color: var(--accent); color: var(--accent); }
+.btn-ghost { background: var(--bg2); border-color: var(--border); color: var(--ink2); }
+.btn-green { background: #3F7A3A; color: #fff; }
+.btn-sm { padding: .45em .9em; font-size: .8rem; }
+.btn-block { width: 100%; justify-content: center; }
+
+/* ===== ANNOUNCEMENT BANNER ===== */
+.banner {
+  background: var(--accent); color: #fff; font-size: .86rem; font-weight: 600;
+  text-align: center; padding: .55em 2.5em .55em 1em; position: relative;
+}
+.banner-close {
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: #fff; font-size: 1.1rem; cursor: pointer; padding: 4px 8px;
 }
 
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  margin:0;
-  background:var(--parchment);
-  color:var(--ink);
-  font-family:var(--font-body);
-  line-height:1.55;
-  transition:background .3s ease, color .3s ease;
+/* ===== HEADER ===== */
+header.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
 }
-img{max-width:100%; display:block;}
-a{color:inherit;}
-h1,h2,h3,h4{font-family:var(--font-display); margin:0 0 .4em; font-weight:700; line-height:1.15;}
-p{margin:0 0 1em;}
-.container{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
-section{scroll-margin-top:84px;}
+.nav-wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 20px; max-width: 1160px; margin: 0 auto; gap: 14px;
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.brand img { width: 42px; height: 42px; border-radius: 9px; object-fit: cover; border: 2px solid var(--accent); }
+.brand-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; line-height: 1.1; }
+.brand-sub { font-size: .7rem; color: var(--ink2); display: block; }
 
-.eyebrow{
-  font-family:var(--font-accent);
-  color:var(--sindoor);
-  font-size:1.1rem;
-  display:block;
-  margin-bottom:.25em;
+nav.main-nav { display: flex; align-items: center; gap: 2px; }
+nav.main-nav a {
+  padding: .45em .75em; border-radius: 7px; text-decoration: none;
+  font-weight: 600; font-size: .85rem; color: var(--ink2); transition: background .14s, color .14s;
 }
-[data-theme="dark"] .eyebrow{color:var(--marigold);}
+nav.main-nav a:hover { background: var(--bg2); color: var(--accent); }
 
-/* Buttons */
-.btn{
-  display:inline-flex; align-items:center; gap:.5em;
-  padding:.7em 1.3em; border-radius:999px; border:2px solid transparent;
-  font-family:var(--font-body); font-weight:600; font-size:.92rem;
-  cursor:pointer; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease;
-  white-space:nowrap;
-}
-.btn:hover{transform:translateY(-2px);}
-.btn:focus-visible{outline:3px solid var(--peacock); outline-offset:2px;}
-.btn-primary{background:var(--sindoor); color:#FFF8EC; box-shadow:0 6px 16px rgba(193,68,14,0.35);}
-.btn-primary:hover{background:var(--sindoor-dark);}
-.btn-outline{background:transparent; border-color:var(--peacock); color:var(--peacock);}
-[data-theme="dark"] .btn-outline{border-color:var(--marigold); color:var(--marigold);}
-.btn-whatsapp{background:#3F7A3A; color:#fff;}
-.btn-sm{padding:.5em 1em; font-size:.82rem;}
-.btn-block{width:100%; justify-content:center;}
+.header-right { display: flex; align-items: center; gap: 6px; }
 
-/* ============ Skip link ============ */
-.skip-link{
-  position:absolute; left:-9999px; top:0; background:var(--sindoor); color:#fff;
-  padding:10px 16px; z-index:200; border-radius:0 0 8px 0;
+/* Theme switcher */
+.theme-switcher { position: relative; }
+.theme-btn {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 10px; font-size: .8rem; font-weight: 600; cursor: pointer; color: var(--ink);
+  display: flex; align-items: center; gap: 5px;
 }
-.skip-link:focus{left:0;}
+.theme-dropdown {
+  display: none; position: absolute; right: 0; top: calc(100% + 6px);
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  box-shadow: var(--shadow); padding: 6px; min-width: 170px; z-index: 200;
+}
+.theme-dropdown.open { display: block; }
+.theme-opt {
+  display: block; width: 100%; text-align: left; padding: .5em .8em; border: none;
+  background: none; border-radius: 7px; font-size: .84rem; font-weight: 600; cursor: pointer; color: var(--ink);
+}
+.theme-opt:hover, .theme-opt.active { background: var(--bg2); color: var(--accent); }
 
-/* ============ Announcement banner ============ */
-.banner{
-  background:var(--sindoor); color:#FFF6E9; font-size:.88rem; font-weight:600;
-  text-align:center; padding:.6em 2.4em .6em 1em; position:relative;
+.icon-btn {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+  width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1rem; color: var(--ink);
 }
-.banner button{
-  position:absolute; right:8px; top:50%; transform:translateY(-50%);
-  background:none; border:none; color:#FFF6E9; font-size:1.1rem; cursor:pointer; padding:4px 8px;
-}
+.hamburger { display: none; }
 
-/* ============ Header / Nav ============ */
-header.site-header{
-  position:sticky; top:0; z-index:100;
-  background:var(--parchment); border-bottom:1px solid var(--border-line);
-  backdrop-filter:blur(6px);
-}
-.nav-wrap{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:12px 20px; max-width:var(--maxw); margin:0 auto; gap:16px;
-}
-.brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink);}
-.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--sindoor);}
-.brand-text{display:flex; flex-direction:column; line-height:1.1;}
-.brand-text strong{font-family:var(--font-display); font-size:1.05rem;}
-.brand-text span{font-size:.72rem; color:var(--ink-soft);}
-
-nav.main-nav{display:flex; align-items:center; gap:4px;}
-nav.main-nav a{
-  padding:.5em .8em; border-radius:8px; text-decoration:none; font-weight:600; font-size:.9rem; color:var(--ink);
-}
-nav.main-nav a:hover{background:var(--parchment-2); color:var(--sindoor);}
-
-.header-actions{display:flex; align-items:center; gap:8px;}
-.icon-btn{
-  background:var(--parchment-2); border:1px solid var(--border-line); border-radius:10px;
-  width:40px; height:40px; display:flex; align-items:center; justify-content:center;
-  cursor:pointer; font-size:1.1rem; color:var(--ink);
-}
-.icon-btn:focus-visible{outline:3px solid var(--peacock); outline-offset:2px;}
-.hamburger{display:none;}
-
-@media (max-width:880px){
-  nav.main-nav{
-    position:fixed; inset:0 0 0 auto; width:78%; max-width:320px; height:100vh;
-    background:var(--parchment); flex-direction:column; align-items:flex-start; padding:90px 24px 24px;
-    box-shadow:-10px 0 30px rgba(0,0,0,.15); transform:translateX(100%); transition:transform .3s ease; gap:6px;
+@media (max-width: 900px) {
+  nav.main-nav {
+    position: fixed; inset: 0 0 0 auto; width: 76%; max-width: 310px; height: 100vh;
+    background: var(--bg); flex-direction: column; align-items: flex-start; padding: 88px 20px 20px;
+    box-shadow: -8px 0 28px rgba(0,0,0,.16); transform: translateX(100%); transition: transform .3s ease; gap: 4px;
+    border-left: 1px solid var(--border);
   }
-  nav.main-nav.open{transform:translateX(0);}
-  nav.main-nav a{width:100%; font-size:1.05rem;}
-  .hamburger{display:flex;}
+  nav.main-nav.open { transform: translateX(0); }
+  nav.main-nav a { width: 100%; font-size: 1rem; }
+  .hamburger { display: flex; }
 }
 
-/* ============ Motif defs (Mithila line-art) ============ */
-.motif-defs{position:absolute; width:0; height:0; overflow:hidden;}
-
-/* ============ Hero ============ */
-.hero{
-  position:relative; padding:38px 0 30px; overflow:hidden;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(193,68,14,0.08), transparent 40%),
-    radial-gradient(circle at 85% 10%, rgba(27,75,107,0.08), transparent 40%);
-}
-.hero-border{width:100%; height:44px; display:block;}
-.hero-border path{
-  fill:none; stroke:var(--sindoor); stroke-width:2.2; stroke-linecap:round;
-}
-.draw-in path{
-  stroke-dasharray:1;
-  stroke-dashoffset:1;
-  animation:drawline 1.8s ease forwards;
-}
-@keyframes drawline{ to{ stroke-dashoffset:0; } }
-@media (prefers-reduced-motion: reduce){
-  .draw-in path{ animation:none; stroke-dashoffset:0; }
+/* ===== HERO ===== */
+.hero {
+  position: relative; overflow: hidden;
+  background: var(--hero-grad);
+  min-height: 480px; display: flex; flex-direction: column; justify-content: center;
 }
 
-.hero-inner{
-  max-width:var(--maxw); margin:0 auto; padding:20px 20px 0; text-align:center;
+/* Mithila painting parallax background */
+.hero-mithila-bg {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
 }
-.hero h1{font-size:clamp(2rem, 5vw, 3.1rem); margin-bottom:.2em;}
-.hero h1 em{color:var(--sindoor); font-style:italic;}
-.hero .tagline{font-size:1.05rem; color:var(--ink-soft); max-width:560px; margin:0 auto 1.6em;}
+.hero-mithila-bg svg {
+  position: absolute; width: 100%; height: 100%; opacity: .07;
+  will-change: transform;
+}
+[data-theme="dark"] .hero-mithila-bg svg { opacity: .05; }
 
-.search-scroll{
-  max-width:640px; margin:0 auto 22px; background:var(--card);
-  border:2px solid var(--border-line); border-radius:999px; box-shadow:var(--shadow);
-  display:flex; align-items:center; padding:6px 6px 6px 20px; gap:8px;
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 1160px; margin: 0 auto; padding: 60px 20px 48px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
 }
-.search-scroll input{
-  flex:1; border:none; background:transparent; font-family:var(--font-body); font-size:1rem;
-  padding:10px 0; color:var(--ink); outline:none;
-}
-.search-scroll button{border-radius:999px;}
+@media (max-width: 760px) { .hero-inner { grid-template-columns: 1fr; text-align: center; } }
 
-.quick-actions{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:6px;}
+.hero-text .eyebrow {
+  font-family: 'Yatra One', cursive; color: var(--accent);
+  font-size: 1.15rem; display: block; margin-bottom: .3em;
+}
+.hero-text h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: .4em; }
+.hero-text h1 em { color: var(--accent); font-style: normal; }
+.hero-text .tagline { font-size: .98rem; color: var(--ink2); margin-bottom: 1.4em; max-width: 440px; }
+@media (max-width: 760px) { .hero-text .tagline { margin: 0 auto 1.4em; } }
 
-/* ============ Sticky filter bar ============ */
-.filter-bar{
-  position:sticky; top:69px; z-index:90; background:var(--parchment-2);
-  border-bottom:1px solid var(--border-line); padding:10px 0;
+/* Mithila items display */
+.hero-visual {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
 }
-.filter-row{display:flex; gap:8px; overflow-x:auto; padding:0 4px; scrollbar-width:thin;}
-.chip{
-  flex:0 0 auto; padding:.4em .9em; border-radius:999px; border:1px solid var(--border-line);
-  background:var(--card); font-size:.82rem; font-weight:600; cursor:pointer; color:var(--ink-soft);
+.mithila-items {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
 }
-.chip.active{background:var(--peacock); border-color:var(--peacock); color:#FFF6E9;}
-.chip:focus-visible{outline:3px solid var(--sindoor); outline-offset:2px;}
-.filter-label{font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); align-self:center; margin-right:2px; flex:0 0 auto;}
+.mithila-item {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.mithila-item-icon {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: var(--bg2); border: 3px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem; box-shadow: var(--shadow);
+  transition: transform .2s; overflow: hidden;
+}
+.mithila-item-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.mithila-item-icon:hover { transform: scale(1.08); }
+.mithila-item span { font-family: 'Yatra One', cursive; font-size: .82rem; color: var(--ink2); }
+.heritage-badge {
+  font-family: 'Yatra One', cursive; font-size: 1.05rem;
+  color: var(--accent); text-align: center; padding: .5em 1.2em;
+  border: 2px solid var(--accent); border-radius: 999px;
+  background: rgba(255,255,255,.3); backdrop-filter: blur(4px);
+}
+[data-theme="dark"] .heritage-badge { background: rgba(0,0,0,.3); }
 
-/* ============ Section divider (signature motif, reused) ============ */
-.divider{
-  display:flex; align-items:center; gap:14px; max-width:var(--maxw); margin:0 auto; padding:0 20px 34px;
+/* ===== SEARCH ===== */
+.search-wrap {
+  max-width: 580px; background: var(--card);
+  border: 2px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
+  display: flex; align-items: center; padding: 5px 5px 5px 16px; gap: 6px;
+  margin-bottom: 1.2em;
 }
-.divider::before, .divider::after{content:''; flex:1; height:1px; background:var(--border-line); position:relative;}
-.divider::before{border-top:1px solid var(--border-line); box-shadow:0 3px 0 -2px var(--border-line);}
-.divider::after{border-top:1px solid var(--border-line); box-shadow:0 3px 0 -2px var(--border-line);}
-.divider svg{width:26px; height:26px; color:var(--sindoor); flex:0 0 auto;}
+@media (max-width: 760px) { .search-wrap { margin: 0 auto 1.2em; } }
+.search-wrap input {
+  flex: 1; border: none; background: transparent;
+  font-family: 'Inter', sans-serif; font-size: .95rem; padding: 8px 0; color: var(--ink); outline: none;
+}
+.search-wrap input::placeholder { color: var(--ink2); }
+#searchClearBtn { display: none; }
+#searchIconBtn { display: flex; }
 
-section.block{padding:50px 0 10px;}
-.block-head{max-width:var(--maxw); margin:0 auto; padding:0 20px 22px; text-align:center;}
-.block-head h2{font-size:clamp(1.5rem,3vw,2.1rem);}
-.block-head p{color:var(--ink-soft); max-width:560px; margin:0 auto;}
+.quick-links { display: flex; gap: 8px; flex-wrap: wrap; }
+@media (max-width: 760px) { .quick-links { justify-content: center; } }
 
-/* ============ Cards ============ */
-.grid{
-  max-width:var(--maxw); margin:0 auto; padding:0 20px 10px;
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:18px;
+/* ===== FILTER BAR ===== */
+.filter-bar {
+  position: sticky; top: 62px; z-index: 90;
+  background: var(--bg2); border-bottom: 1px solid var(--border); padding: 8px 0;
 }
-.card{
-  background:var(--card); border:1.5px double var(--border-line); border-radius:var(--radius);
-  padding:18px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:10px;
-  transition:transform .18s ease, box-shadow .18s ease; position:relative;
+.filter-inner {
+  max-width: 1160px; margin: 0 auto; padding: 0 20px;
+  display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; align-items: center;
 }
-.card:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(193,68,14,0.18);}
-.card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:8px;}
-.tag{
-  font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
-  padding:.3em .6em; border-radius:6px; background:var(--parchment-2); color:var(--peacock);
+.filter-inner::-webkit-scrollbar { display: none; }
+.filter-label { font-size: .72rem; font-weight: 700; color: var(--ink2); white-space: nowrap; flex-shrink: 0; text-transform: uppercase; letter-spacing: .05em; }
+.chip {
+  flex-shrink: 0; padding: .38em .85em; border-radius: 999px;
+  border: 1.5px solid var(--border); background: var(--card);
+  font-size: .8rem; font-weight: 600; cursor: pointer; color: var(--ink2);
+  transition: all .14s;
 }
-.tag-sem{background:rgba(27,75,107,0.12);}
-.badge-new{
-  background:var(--marigold); color:#2A1F14; font-size:.65rem; font-weight:800;
-  padding:.25em .55em; border-radius:6px; text-transform:uppercase;
-}
-.card h3{font-size:1.05rem; margin:2px 0 0;}
-.card .meta{font-size:.8rem; color:var(--ink-soft);}
-.card .desc{font-size:.88rem; color:var(--ink-soft); flex:1;}
-.card .row{display:flex; gap:8px; flex-wrap:wrap; margin-top:auto;}
-.dl-count{font-size:.7rem; color:var(--ink-soft); margin-top:-4px;}
-.thumb{
-  width:100%; aspect-ratio:16/10; border-radius:10px; object-fit:cover; background:var(--parchment-2);
-  border:1px solid var(--border-line);
-}
-.no-results{text-align:center; color:var(--ink-soft); padding:24px; font-style:italic; display:none;}
+.chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-/* Notifications */
-.notif-card{border-left:4px solid var(--sindoor);}
-.notif-card .cat{color:var(--leaf); font-weight:700; font-size:.72rem; text-transform:uppercase;}
-.notif-card .date{color:var(--ink-soft); font-size:.75rem;}
+/* ===== SECTIONS ===== */
+.section { padding: 48px 0 8px; }
+.section-head { max-width: 1160px; margin: 0 auto; padding: 0 20px 20px; }
+.section-head .eyebrow { font-family: 'Yatra One', cursive; color: var(--accent); font-size: 1rem; display: block; margin-bottom: .15em; }
+.section-head h2 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); }
+.section-head p { color: var(--ink2); font-size: .92rem; max-width: 520px; }
 
-/* Featured strip / slider */
-.slider{max-width:var(--maxw); margin:0 auto 10px; padding:0 20px;}
-.slider-track{display:flex; gap:16px; overflow-x:auto; padding:6px 2px 16px; scroll-snap-type:x mandatory;}
-.slider-track .card{min-width:270px; scroll-snap-align:start;}
+/* Divider */
+.divider { display: flex; align-items: center; gap: 12px; max-width: 1160px; margin: 24px auto; padding: 0 20px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider-motif { color: var(--accent); font-size: 1.2rem; }
 
-/* About / FAQ */
-.about-wrap{max-width:800px; margin:0 auto; padding:0 20px; text-align:center;}
-.faq-wrap{max-width:720px; margin:0 auto; padding:0 20px;}
-details.faq{
-  background:var(--card); border:1px solid var(--border-line); border-radius:12px;
-  padding:14px 18px; margin-bottom:10px;
+/* ===== GRID & CARDS ===== */
+.grid {
+  max-width: 1160px; margin: 0 auto; padding: 0 20px 8px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px;
 }
-details.faq summary{font-weight:700; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;}
-details.faq summary::-webkit-details-marker{display:none;}
-details.faq summary::after{content:'+'; font-size:1.3rem; color:var(--sindoor);}
-details.faq[open] summary::after{content:'−';}
-details.faq p{margin-top:10px; color:var(--ink-soft); font-size:.92rem;}
-
-/* Contact */
-.contact-grid{
-  max-width:var(--maxw); margin:0 auto; padding:0 20px; display:grid;
-  grid-template-columns:1fr 1fr; gap:24px; align-items:start;
+.card {
+  background: var(--card); border: 1.5px solid var(--border); border-radius: 14px;
+  padding: 16px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 8px; position: relative;
+  transition: transform .16s, box-shadow .16s;
 }
-@media (max-width:760px){.contact-grid{grid-template-columns:1fr;}}
-.contact-card{background:var(--card); border:1.5px double var(--border-line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);}
-.contact-list{list-style:none; padding:0; margin:0 0 16px; display:flex; flex-direction:column; gap:12px;}
-.contact-list li{display:flex; align-items:center; gap:10px; font-size:.94rem;}
-.contact-list a{text-decoration:none; font-weight:600; color:var(--peacock);}
-.form-row{margin-bottom:12px; display:flex; flex-direction:column; gap:6px;}
-.form-row label{font-size:.82rem; font-weight:600; color:var(--ink-soft);}
-.form-row input, .form-row select, .form-row textarea{
-  padding:.7em .8em; border-radius:10px; border:1.5px solid var(--border-line);
-  font-family:var(--font-body); font-size:.92rem; background:var(--parchment); color:var(--ink);
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.15); }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
+.tag {
+  font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+  padding: .25em .55em; border-radius: 6px; background: var(--bg2); color: var(--blue);
+}
+.badge-new {
+  background: var(--gold); color: #fff; font-size: .63rem; font-weight: 800;
+  padding: .22em .5em; border-radius: 5px; text-transform: uppercase; flex-shrink: 0;
+}
+.card h3 { font-size: .98rem; margin: 2px 0 0; }
+.meta { font-size: .78rem; color: var(--ink2); }
+.desc { font-size: .86rem; color: var(--ink2); flex: 1; }
+.card-actions { display: flex; gap: 7px; flex-wrap: wrap; margin-top: auto; padding-top: 4px; }
+.no-results { text-align: center; color: var(--ink2); padding: 24px; font-style: italic; display: none; }
+.notif-card { border-left: 4px solid var(--accent); }
+.notif-cat { color: var(--green); font-weight: 700; font-size: .7rem; text-transform: uppercase; }
+.notif-date { color: var(--ink2); font-size: .73rem; }
+
+/* Slider */
+.slider { max-width: 1160px; margin: 0 auto; padding: 0 20px 4px; }
+.slider-track {
+  display: flex; gap: 14px; overflow-x: auto; padding: 4px 2px 14px;
+  scroll-snap-type: x mandatory; scrollbar-width: thin;
+}
+.slider-track .card { min-width: 255px; scroll-snap-align: start; }
+
+/* ===== FACULTY SECTION ===== */
+.faculty-grid {
+  max-width: 1160px; margin: 0 auto; padding: 0 20px 8px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;
+}
+.faculty-card {
+  background: var(--card); border: 1.5px solid var(--border); border-radius: 14px;
+  padding: 20px 16px; box-shadow: var(--shadow); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.faculty-photo {
+  width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--accent); background: var(--bg2);
+  display: flex; align-items: center; justify-content: center; font-size: 2rem;
+}
+.faculty-photo img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.faculty-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; }
+.faculty-subject { font-size: .78rem; color: var(--ink2); }
+.faculty-phone a { font-size: .82rem; font-weight: 600; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 4px; }
+
+/* ===== PHOTO GALLERY ===== */
+.gallery-grid {
+  max-width: 1160px; margin: 0 auto; padding: 0 20px 8px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px;
+}
+.gallery-item {
+  border-radius: 12px; overflow: hidden; border: 1.5px solid var(--border);
+  box-shadow: var(--shadow); position: relative; aspect-ratio: 4/3;
+  background: var(--bg2); cursor: pointer;
+  transition: transform .16s;
+}
+.gallery-item:hover { transform: scale(1.02); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-empty { text-align: center; color: var(--ink2); padding: 32px; font-style: italic; }
+
+/* Gallery lightbox */
+.lightbox {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88);
+  z-index: 500; align-items: center; justify-content: center;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 90vw; max-height: 88vh; border-radius: 10px; }
+.lightbox-close {
+  position: absolute; top: 16px; right: 20px; background: none; border: none;
+  color: #fff; font-size: 2rem; cursor: pointer;
 }
 
-/* Footer */
-footer{background:var(--ink); color:var(--parchment); margin-top:60px; padding:44px 0 20px; position:relative;}
-[data-theme="dark"] footer{background:#120C07;}
-.footer-grid{max-width:var(--maxw); margin:0 auto; padding:0 20px; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:30px;}
-@media (max-width:700px){.footer-grid{grid-template-columns:1fr;}}
-.footer-grid h4{color:var(--marigold); font-size:1rem;}
-.footer-grid ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;}
-.footer-grid a{text-decoration:none; color:#EADFC9; font-size:.9rem;}
-.footer-bottom{text-align:center; font-size:.8rem; color:#B8A98A; margin-top:34px; padding-top:18px; border-top:1px solid rgba(255,255,255,.12);}
-
-/* Floating buttons */
-.fab{
-  position:fixed; right:20px; bottom:20px; z-index:150; width:58px; height:58px; border-radius:50%;
-  background:#3F7A3A; color:#fff; display:flex; align-items:center; justify-content:center;
-  box-shadow:0 8px 22px rgba(0,0,0,.25); text-decoration:none; font-size:1.6rem; border:none; cursor:pointer;
+/* ===== FAQ ===== */
+.faq-wrap { max-width: 700px; margin: 0 auto; padding: 0 20px; }
+details.faq {
+  background: var(--card); border: 1px solid var(--border); border-radius: 11px;
+  padding: 13px 17px; margin-bottom: 9px;
 }
-.fab.top{right:20px; bottom:88px; background:var(--peacock); font-size:1.2rem; opacity:0; pointer-events:none; transition:opacity .2s ease;}
-.fab.top.show{opacity:1; pointer-events:auto;}
+details.faq summary { font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+details.faq summary::-webkit-details-marker { display: none; }
+details.faq summary::after { content: '+'; font-size: 1.3rem; color: var(--accent); }
+details.faq[open] summary::after { content: '−'; }
+details.faq p { margin-top: 10px; color: var(--ink2); font-size: .9rem; }
 
-.toast{
-  position:fixed; left:50%; bottom:24px; transform:translate(-50%, 20px); background:var(--ink); color:var(--parchment);
-  padding:.8em 1.3em; border-radius:10px; font-size:.88rem; opacity:0; pointer-events:none;
-  transition:opacity .25s ease, transform .25s ease; z-index:200;
+/* ===== CONTACT ===== */
+.contact-grid {
+  max-width: 1160px; margin: 0 auto; padding: 0 20px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start;
 }
-.toast.show{opacity:1; transform:translate(-50%,0);}
+@media (max-width: 740px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 22px; box-shadow: var(--shadow); }
+.contact-list { list-style: none; padding: 0; margin: 0 0 14px; display: flex; flex-direction: column; gap: 10px; }
+.contact-list li { display: flex; align-items: center; gap: 9px; font-size: .92rem; }
+.contact-list a { text-decoration: none; font-weight: 600; color: var(--blue); }
+.form-row { margin-bottom: 11px; display: flex; flex-direction: column; gap: 5px; }
+.form-row label { font-size: .8rem; font-weight: 600; color: var(--ink2); }
+.form-row input, .form-row select, .form-row textarea {
+  padding: .65em .8em; border-radius: 9px; border: 1.5px solid var(--border);
+  font-family: 'Inter', sans-serif; font-size: .9rem; background: var(--bg); color: var(--ink);
+  outline: none; transition: border-color .14s;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--accent); }
 
-.visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+/* ===== FOOTER ===== */
+footer { background: var(--ink); color: var(--bg); margin-top: 60px; padding: 40px 0 18px; }
+[data-theme="dark"] footer { background: #080404; }
+.footer-grid { max-width: 1160px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px; }
+@media (max-width: 680px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-grid h4 { color: var(--gold); font-size: .98rem; margin-bottom: .6em; }
+.footer-grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
+.footer-grid a { text-decoration: none; color: rgba(255,255,255,.75); font-size: .87rem; }
+.footer-grid a:hover { color: #fff; }
+.footer-bottom { text-align: center; font-size: .78rem; color: rgba(255,255,255,.45); margin-top: 30px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.1); }
+
+/* ===== FLOATING BUTTONS ===== */
+.fab {
+  position: fixed; right: 18px; bottom: 18px; z-index: 150;
+  width: 54px; height: 54px; border-radius: 50%;
+  background: #3F7A3A; color: #fff; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,.28); text-decoration: none; font-size: 1.5rem; border: none; cursor: pointer;
+}
+.fab-top { right: 18px; bottom: 82px; background: var(--blue); font-size: 1.1rem; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.fab-top.show { opacity: 1; pointer-events: auto; }
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 18px);
+  background: var(--ink); color: var(--bg); padding: .75em 1.2em; border-radius: 9px;
+  font-size: .85rem; opacity: 0; pointer-events: none;
+  transition: opacity .22s, transform .22s; z-index: 300;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ===== ABOUT ===== */
+.about-wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== SKIP LINK ===== */
+.skip-link { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #fff; padding: 9px 14px; z-index: 300; }
+.skip-link:focus { left: 0; }
+
+/* Loading state */
+.loading-indicator {
+  text-align: center; padding: 28px; color: var(--ink2); font-style: italic;
+}
+
+/* Semester view mode — unified results */
+#semesterView { display: none; }
+#semesterView.active { display: block; }
+.sem-view-inner { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+.sem-view-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 0 20px; flex-wrap: wrap; gap: 10px;
+}
+.sem-view-head h2 { font-size: 1.5rem; margin: 0; }
+.sem-category-title { font-family: 'Yatra One', cursive; font-size: 1.05rem; color: var(--accent); margin: 22px 0 10px; display: block; }
 </style>
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Reusable Mithila motif symbols -->
-<svg class="motif-defs" aria-hidden="true">
-  <defs>
-    <symbol id="motif-fish" viewBox="0 0 60 30">
-      <path d="M2,15 Q15,2 30,15 Q45,28 58,15" fill="none" stroke="currentColor" stroke-width="2"/>
-      <circle cx="10" cy="13" r="1.6" fill="currentColor"/>
-      <path d="M2,15 L8,9 M2,15 L8,21" stroke="currentColor" stroke-width="1.4" fill="none"/>
-    </symbol>
-    <symbol id="motif-sun" viewBox="0 0 40 40">
-      <circle cx="20" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
-      <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="20" y1="2" x2="20" y2="8"/><line x1="20" y1="32" x2="20" y2="38"/>
-        <line x1="2" y1="20" x2="8" y2="20"/><line x1="32" y1="20" x2="38" y2="20"/>
-        <line x1="7" y1="7" x2="11" y2="11"/><line x1="29" y1="29" x2="33" y2="33"/>
-        <line x1="33" y1="7" x2="29" y2="11"/><line x1="11" y1="29" x2="7" y2="33"/>
-      </g>
-    </symbol>
-    <symbol id="motif-peacock" viewBox="0 0 50 50">
-      <circle cx="25" cy="30" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M25,24 L25,10" stroke="currentColor" stroke-width="2"/>
-      <g fill="none" stroke="currentColor" stroke-width="1.6">
-        <circle cx="10" cy="10" r="3"/><circle cx="25" cy="4" r="3"/><circle cx="40" cy="10" r="3"/>
-        <path d="M25,24 Q14,18 10,10"/><path d="M25,24 Q36,18 40,10"/>
-      </g>
-    </symbol>
-    <symbol id="motif-lotus" viewBox="0 0 40 40">
-      <g fill="none" stroke="currentColor" stroke-width="1.8">
-        <path d="M20,34 C10,30 8,18 20,10 C32,18 30,30 20,34 Z"/>
-        <path d="M20,34 C14,24 14,14 20,8"/>
-        <path d="M20,34 C26,24 26,14 20,8"/>
-      </g>
-    </symbol>
-    <symbol id="motif-tree" viewBox="0 0 40 40">
-      <line x1="20" y1="38" x2="20" y2="14" stroke="currentColor" stroke-width="2"/>
-      <circle cx="20" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M20,22 L10,28 M20,22 L30,28" stroke="currentColor" stroke-width="1.6" fill="none"/>
-    </symbol>
-  </defs>
-</svg>
-
-<!-- ============ Announcement banner ============ -->
+<!-- ===== ANNOUNCEMENT BANNER ===== -->
 <div class="banner" id="banner" role="region" aria-label="Announcement">
-  📢 Semester 5 & 6 internal exam routine released — check the Notifications section below.
-  <button id="bannerClose" aria-label="Dismiss announcement">✕</button>
+  📢 Semester 5 &amp; 6 internal exam routine released — check the Notifications section below.
+  <button class="banner-close" id="bannerClose" aria-label="Close">✕</button>
 </div>
 
-<!-- ============ Header ============ -->
+<!-- ===== HEADER ===== -->
 <header class="site-header">
   <div class="nav-wrap">
     <a href="#home" class="brand">
-      <img src="https://i.ibb.co/8gJ0bRh2/Picsart-26-08-05-20-45-24-862.png" alt="KVSC College logo" loading="lazy">
-      <span class="brand-text"><strong>KVSC Study Materials</strong><span>By Sagar</span></span>
+      <img src="https://i.ibb.co/8gJ0bRh2/Picsart-26-08-05-20-45-24-862.png" alt="KVSC logo" loading="lazy">
+      <span>
+        <span class="brand-name">KVSC Study Materials</span>
+        <span class="brand-sub">By Sagar — Kalidas Vidyapati Science College</span>
+      </span>
     </a>
+
     <nav class="main-nav" id="mainNav" aria-label="Main navigation">
       <a href="#home">Home</a>
       <a href="#assignments">Assignments</a>
       <a href="#notes">Notes</a>
-      <a href="#library">PDF Library</a>
-      <a href="#papers">Question Papers</a>
-      <a href="#notifications">Notifications</a>
-      <a href="#about">About</a>
+      <a href="#library">Library</a>
+      <a href="#papers">Papers</a>
+      <a href="#notifications">Notices</a>
+      <a href="#faculty">Faculty</a>
+      <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="header-actions">
-      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+
+    <div class="header-right">
+      <!-- Theme Switcher -->
+      <div class="theme-switcher">
+        <button class="theme-btn" id="themeBtn" aria-label="Change theme">🎨 <span id="themeLabel">Mithila</span> ▾</button>
+        <div class="theme-dropdown" id="themeDropdown">
+          <button class="theme-opt active" data-t="mithila">🎨 Mithila</button>
+          <button class="theme-opt" data-t="dark">🌙 Dark</button>
+          <button class="theme-opt" data-t="blue">🔵 Modern Blue</button>
+          <button class="theme-opt" data-t="green">🌿 Forest Green</button>
+          <button class="theme-opt" data-t="purple">🟣 Royal Purple</button>
+          <button class="theme-opt" data-t="saffron">🟠 Saffron</button>
+        </div>
+      </div>
       <button class="icon-btn hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
   </div>
@@ -404,35 +558,76 @@ footer{background:var(--ink); color:var(--parchment); margin-top:60px; padding:4
 
 <main id="main">
 
-<!-- ============ Hero ============ -->
+<!-- ===== HERO ===== -->
 <section class="hero" id="home">
-  <svg class="hero-border draw-in" viewBox="0 0 1200 44" preserveAspectRatio="none" aria-hidden="true">
-    <path pathLength="1" d="M0,22 Q50,4 100,22 T200,22 T300,22 T400,22 T500,22 T600,22 T700,22 T800,22 T900,22 T1000,22 T1100,22 T1200,22"/>
-  </svg>
+  <!-- Mithila painting parallax background -->
+  <div class="hero-mithila-bg" id="mithilaBg">
+    <img src="https://i.ibb.co/XxkkQYn2/1091555a48f571ab38188011b955c47e.jpg" alt="Mithila Painting" id="parallaxSvg" style="width:100%;height:100%;object-fit:cover;opacity:0.15;position:absolute;inset:0;will-change:transform;">
+    <img src="https://i.ibb.co/FbDv0w3T/291c95e7aebddfe66ec8856d15baf336.jpg" alt="पान" style="width:220px;height:220px;object-fit:cover;opacity:0.09;position:absolute;right:5%;bottom:0;border-radius:50%;pointer-events:none;">
+  </div>
+
   <div class="hero-inner">
-    <span class="eyebrow">॥ मिथिला की धरोहर ॥</span>
-    <h1>Assignments, Notes &amp; Notices —<br><em>All in One Place.</em></h1>
-    <p class="tagline">KVSC College, Uchhaith, Benipatti — everything a science student needs, organised by subject and semester.</p>
-    <form class="search-scroll" role="search" onsubmit="return false;">
-      <label for="searchInput" class="visually-hidden">Search assignments, notes, PDFs, question papers, notifications</label>
-      <input type="text" id="searchInput" placeholder="Search subject, semester, assignment, notes…">
-      <button type="button" class="btn btn-primary btn-sm" id="searchClearBtn">Clear</button>
-    </form>
-    <div class="quick-actions">
-      <a href="#assignments" class="btn btn-outline">📄 Assignments</a>
-      <a href="#notes" class="btn btn-outline">📚 Notes</a>
-      <a href="#library" class="btn btn-outline">🗂️ PDF Library</a>
-      <a href="#papers" class="btn btn-outline">📝 Question Papers</a>
-      <a href="#notifications" class="btn btn-outline">🔔 Notifications</a>
+    <div class="hero-text">
+      <span class="eyebrow">॥ मिथिला की धरोहर ॥</span>
+      <h1>KVSC College का<br><em>Study Portal</em></h1>
+      <p class="tagline">Kalidas Vidyapati Science College, Uchhaith, Benipatti — assignments, notes, question papers और notifications एक जगह।</p>
+
+      <div class="search-wrap" id="searchWrap">
+        <input type="text" id="searchInput" placeholder="Subject, semester, assignment खोजें…" aria-label="Search" autocomplete="off">
+        <button class="btn btn-ghost btn-sm" id="searchIconBtn" aria-label="Search">🔍</button>
+        <button class="btn btn-primary btn-sm" id="searchBtn" aria-label="Search" style="display:none;">🔍 Search</button>
+        <button class="btn btn-ghost btn-sm" id="searchClearBtn" aria-label="Clear" style="display:none;">✕</button>
+      </div>
+
+      <div class="quick-links">
+        <a href="#assignments" class="btn btn-outline btn-sm">📄 Assignments</a>
+        <a href="#notes" class="btn btn-outline btn-sm">📚 Notes</a>
+        <a href="#library" class="btn btn-outline btn-sm">🗂️ Library</a>
+        <a href="#papers" class="btn btn-outline btn-sm">📝 Papers</a>
+        <a href="#notifications" class="btn btn-outline btn-sm">🔔 Notices</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="heritage-badge">॥ मिथिला की पहचान ॥</div>
+      <!-- Mithila painting + Chhath Puja images -->
+      <div style="display:flex;gap:10px;justify-content:center;margin-bottom:10px;">
+        <div style="width:110px;height:110px;border-radius:12px;overflow:hidden;border:2px solid var(--accent);box-shadow:var(--shadow);">
+          <img src="https://i.ibb.co/rGXRNLhg/af05b00802bd5003a16a98e4117851fe.jpg" alt="Mithila Painting" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="width:110px;height:110px;border-radius:12px;overflow:hidden;border:2px solid var(--accent);box-shadow:var(--shadow);">
+          <img src="https://i.ibb.co/jktFbrjG/b34da498e4289083dcfff7ff3892ea0f.jpg" alt="छठ पूजा" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="width:110px;height:110px;border-radius:12px;overflow:hidden;border:2px solid var(--accent);box-shadow:var(--shadow);">
+          <img src="https://i.ibb.co/NgDVnLGS/cbda275a1f3223c7ae80036189763e69.jpg" alt="माता सरस्वती" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+      <div class="mithila-items">
+        <div class="mithila-item">
+          <div class="mithila-item-icon"><img src="https://i.ibb.co/DDCGv0ZQ/e50019bf5a4b970fc90fb8e01a1f9149.jpg" alt="पान" loading="lazy"></div>
+          <span>पान</span>
+        </div>
+        <div class="mithila-item">
+          <div class="mithila-item-icon"><img src="https://i.ibb.co/xqkW47sg/4ac5fe57b03287e8f029c2b7a019987f.jpg" alt="मखान" loading="lazy"></div>
+          <span>मखान</span>
+        </div>
+        <div class="mithila-item">
+          <div class="mithila-item-icon"><img src="https://i.ibb.co/KpnnPCcJ/22fb599e167923e3c849d08297695c65.jpg" alt="माछ" loading="lazy"></div>
+          <span>माछ</span>
+        </div>
+      </div>
+      <div class="heritage-badge" style="font-size:.88rem; border-style: dashed;">
+        Madhubani · Mithilanchal · Bihar
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ Sticky filter bar ============ -->
+<!-- ===== FILTER BAR ===== -->
 <div class="filter-bar">
-  <div class="container filter-row" id="filterRow">
-    <span class="filter-label">Semester</span>
-    <button class="chip active" data-sem="all">All</button>
+  <div class="filter-inner" id="filterRow">
+    <span class="filter-label">Semester:</span>
+    <button class="chip active" data-sem="all">सभी</button>
     <button class="chip" data-sem="1">Sem 1</button>
     <button class="chip" data-sem="2">Sem 2</button>
     <button class="chip" data-sem="3">Sem 3</button>
@@ -442,204 +637,247 @@ footer{background:var(--ink); color:var(--parchment); margin-top:60px; padding:4
   </div>
 </div>
 
-<!-- ============ Latest notifications strip ============ -->
-<section class="block" aria-labelledby="latestNotifHead">
-  <div class="block-head">
+<!-- ===== SEMESTER VIEW (unified results when a semester is selected) ===== -->
+<div id="semesterView">
+  <div class="sem-view-inner">
+    <div class="sem-view-head">
+      <h2 id="semViewTitle">Semester 1 — सभी सामग्री</h2>
+      <button class="btn btn-ghost btn-sm" id="semViewBack">← वापस जाएं</button>
+    </div>
+    <span class="sem-category-title">📄 Assignments</span>
+    <div class="grid" id="semAssignGrid"></div>
+    <p class="no-results" id="semAssignEmpty" style="display:none">कोई assignment नहीं मिली।</p>
+
+    <span class="sem-category-title">📚 Notes</span>
+    <div class="grid" id="semNotesGrid"></div>
+    <p class="no-results" id="semNotesEmpty" style="display:none">कोई notes नहीं मिले।</p>
+
+    <span class="sem-category-title">🗂️ PDF Library</span>
+    <div class="grid" id="semLibGrid"></div>
+    <p class="no-results" id="semLibEmpty" style="display:none">कोई PDF नहीं मिली।</p>
+
+    <span class="sem-category-title">📝 Question Papers</span>
+    <div class="grid" id="semPapersGrid"></div>
+    <p class="no-results" id="semPapersEmpty" style="display:none">कोई question paper नहीं मिला।</p>
+
+    <span class="sem-category-title">🔔 Notifications</span>
+    <div class="grid" id="semNotifGrid"></div>
+    <p class="no-results" id="semNotifEmpty" style="display:none">कोई notification नहीं।</p>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT (hidden in semester view) ===== -->
+<div id="mainContent">
+
+<!-- Latest Notifications strip -->
+<section class="section" aria-labelledby="latestNotifHead">
+  <div class="section-head">
     <span class="eyebrow">सूचना</span>
     <h2 id="latestNotifHead">Latest Notifications</h2>
-    <p>Fresh announcements from the college office, newest first.</p>
+    <p>College की ताज़ा notifications, newest first।</p>
   </div>
-  <div class="slider">
-    <div class="slider-track" id="latestNotifTrack"></div>
-  </div>
+  <div class="slider"><div class="slider-track" id="latestNotifTrack"></div></div>
 </section>
 
-<div class="divider" aria-hidden="true"><svg><use href="#motif-sun"/></svg></div>
+<div class="divider" aria-hidden="true"><span class="divider-motif">🪷</span></div>
 
-<!-- ============ Featured materials ============ -->
-<section class="block" aria-labelledby="featuredHead">
-  <div class="block-head">
+<!-- Featured -->
+<section class="section" aria-labelledby="featuredHead">
+  <div class="section-head">
     <span class="eyebrow">विशेष</span>
     <h2 id="featuredHead">Featured Study Materials</h2>
-    <p>Most requested resources this month.</p>
+    <p>इस महीने सबसे ज़्यादा माँगी गई सामग्री।</p>
   </div>
-  <div class="slider">
-    <div class="slider-track" id="featuredTrack"></div>
-  </div>
+  <div class="slider"><div class="slider-track" id="featuredTrack"></div></div>
 </section>
 
-<div class="divider" aria-hidden="true"><svg><use href="#motif-peacock"/></svg></div>
+<div class="divider" aria-hidden="true"><span class="divider-motif">🐟</span></div>
 
-<!-- ============ Assignments ============ -->
-<section class="block" id="assignments" aria-labelledby="assignHead">
-  <div class="block-head">
+<!-- Assignments -->
+<section class="section" id="assignments" aria-labelledby="assignHead">
+  <div class="section-head">
     <span class="eyebrow">कार्य</span>
     <h2 id="assignHead">Assignments</h2>
-    <p>Subject-wise assignments for every semester. Tap download, or request on WhatsApp if a file isn't uploaded yet.</p>
+    <p>हर semester के subject-wise assignments।</p>
   </div>
   <div class="grid" id="assignGrid"></div>
-  <p class="no-results" id="assignEmpty">No assignments match your filters.</p>
+  <p class="no-results" id="assignEmpty">कोई assignment नहीं मिली।</p>
 </section>
 
-<div class="divider" aria-hidden="true"><svg><use href="#motif-fish"/></svg></div>
+<div class="divider" aria-hidden="true"><span class="divider-motif">☀️</span></div>
 
-<!-- ============ Notes ============ -->
-<section class="block" id="notes" aria-labelledby="notesHead">
-  <div class="block-head">
+<!-- Notes -->
+<section class="section" id="notes" aria-labelledby="notesHead">
+  <div class="section-head">
     <span class="eyebrow">अध्ययन सामग्री</span>
     <h2 id="notesHead">Notes</h2>
-    <p>Teacher-prepared notes, ready to download.</p>
+    <p>Teacher-prepared notes, download के लिए तैयार।</p>
   </div>
   <div class="grid" id="notesGrid"></div>
-  <p class="no-results" id="notesEmpty">No notes match your filters.</p>
+  <p class="no-results" id="notesEmpty">कोई notes नहीं मिले।</p>
 </section>
 
-<div class="divider" aria-hidden="true"><svg><use href="#motif-lotus"/></svg></div>
+<div class="divider" aria-hidden="true"><span class="divider-motif">🌿</span></div>
 
-<!-- ============ PDF Library ============ -->
-<section class="block" id="library" aria-labelledby="libHead">
-  <div class="block-head">
+<!-- PDF Library -->
+<section class="section" id="library" aria-labelledby="libHead">
+  <div class="section-head">
     <span class="eyebrow">पुस्तकालय</span>
     <h2 id="libHead">PDF Library</h2>
-    <p>Reference books and study PDFs, organised by subject.</p>
+    <p>Reference books और study PDFs, subject-wise।</p>
   </div>
   <div class="grid" id="libGrid"></div>
-  <p class="no-results" id="libEmpty">No PDFs match your filters.</p>
+  <p class="no-results" id="libEmpty">कोई PDF नहीं मिली।</p>
 </section>
 
-<div class="divider" aria-hidden="true"><svg><use href="#motif-lotus"/></svg></div>
+<div class="divider" aria-hidden="true"><span class="divider-motif">🦚</span></div>
 
-<!-- ============ Question Papers ============ -->
-<section class="block" id="papers" aria-labelledby="papersHead">
-  <div class="block-head">
+<!-- Papers -->
+<section class="section" id="papers" aria-labelledby="papersHead">
+  <div class="section-head">
     <span class="eyebrow">प्रश्न पत्र</span>
     <h2 id="papersHead">Previous Year Question Papers</h2>
-    <p>Practice with real exam papers from past years.</p>
+    <p>पिछले वर्षों के असली exam papers।</p>
   </div>
   <div class="grid" id="papersGrid"></div>
-  <p class="no-results" id="papersEmpty">No question papers match your filters.</p>
+  <p class="no-results" id="papersEmpty">कोई question paper नहीं मिला।</p>
 </section>
 
-<div class="divider" aria-hidden="true"><svg><use href="#motif-sun"/></svg></div>
+<div class="divider" aria-hidden="true"><span class="divider-motif">🌸</span></div>
 
-<!-- ============ Notifications (full) ============ -->
-<section class="block" id="notifications" aria-labelledby="notifHead">
-  <div class="block-head">
+<!-- Notifications full -->
+<section class="section" id="notifications" aria-labelledby="notifHead">
+  <div class="section-head">
     <span class="eyebrow">सूचना</span>
     <h2 id="notifHead">All Notifications</h2>
-    <p>Exam routines, results, holidays and general notices.</p>
+    <p>Exam routines, results, holidays और general notices।</p>
   </div>
   <div class="grid" id="notifGrid"></div>
 </section>
 
-<div class="divider" aria-hidden="true"><svg><use href="#motif-tree"/></svg></div>
+<div class="divider" aria-hidden="true"><span class="divider-motif">🌺</span></div>
 
-<!-- ============ About ============ -->
-<section class="block" id="about" aria-labelledby="aboutHead">
-  <div class="about-wrap">
-    <span class="eyebrow">परिचय</span>
-    <h2 id="aboutHead">About This Portal</h2>
-    <p>KVSC Study Materials is a student-run resource hub for Kalidas Vidyapati Science College, Uchhaith, Benipatti. It brings together assignments, notes, reference PDFs, previous year question papers and official notices in one simple, fast-loading page — built and maintained by Sagar for fellow students. No login, no app install, no cost. If a file you need isn't here yet, just send a WhatsApp message and it'll be added.</p>
+<!-- Faculty -->
+<section class="section" id="faculty" aria-labelledby="facultyHead">
+  <div class="section-head">
+    <span class="eyebrow">शिक्षक</span>
+    <h2 id="facultyHead">Our Faculty</h2>
+    <p>KVSC College के शिक्षकगण — contact करने के लिए number देखें।</p>
+  </div>
+  <div class="faculty-grid" id="facultyGrid">
+    <div class="loading-indicator">Faculty loading…</div>
   </div>
 </section>
 
-<div class="divider" aria-hidden="true"><svg><use href="#motif-fish"/></svg></div>
+<div class="divider" aria-hidden="true"><span class="divider-motif">🎨</span></div>
 
-<!-- ============ FAQ ============ -->
-<section class="block" aria-labelledby="faqHead">
-  <div class="block-head">
+<!-- Gallery -->
+<section class="section" id="gallery" aria-labelledby="galleryHead">
+  <div class="section-head">
+    <span class="eyebrow">तस्वीरें</span>
+    <h2 id="galleryHead">College Photo Gallery</h2>
+    <p>KVSC College की यादें और झलकियाँ।</p>
+  </div>
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-empty" id="galleryEmpty" style="grid-column:1/-1;">
+      📷 तस्वीरें जल्द आएंगी। Google Form से photos submit करें।
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span class="divider-motif">🏛️</span></div>
+
+<!-- About -->
+<section class="section" id="about" aria-labelledby="aboutHead">
+  <div class="about-wrap">
+    <span class="eyebrow">परिचय</span>
+    <h2 id="aboutHead">इस Portal के बारे में</h2>
+    <p>KVSC Study Materials एक student-run resource hub है Kalidas Vidyapati Science College, Uchhaith, Benipatti के लिए। यहाँ assignments, notes, reference PDFs, previous year question papers और official notices एक ही जगह मिलते हैं — Sagar द्वारा बनाया और maintained। No login, no app install, no cost।</p>
+    <p>अगर कोई file missing है, WhatsApp पर message करें — जल्द add हो जाएगी।</p>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span class="divider-motif">❓</span></div>
+
+<!-- FAQ -->
+<section class="section" aria-labelledby="faqHead">
+  <div class="section-head" style="text-align:center">
     <span class="eyebrow">सवाल-जवाब</span>
     <h2 id="faqHead">Frequently Asked Questions</h2>
   </div>
   <div class="faq-wrap">
     <details class="faq">
-      <summary>Is this the official college website?</summary>
-      <p>No — this is a student-maintained study materials portal for KVSC College students. For official college matters, contact the college office directly.</p>
+      <summary>क्या यह official college website है?</summary>
+      <p>नहीं — यह एक student-maintained study materials portal है KVSC College students के लिए। Official matters के लिए college office से सीधे संपर्क करें।</p>
     </details>
     <details class="faq">
-      <summary>A PDF link isn't working. What do I do?</summary>
-      <p>Tap the "Request on WhatsApp" button on that card, or use the floating WhatsApp button in the corner — mention the subject and semester and it'll be sent to you directly.</p>
+      <summary>PDF link काम नहीं कर रहा, क्या करें?</summary>
+      <p>"Request on WhatsApp" button दबाएं, या नीचे दिए WhatsApp button से Sagar को message करें — subject और semester बताएं।</p>
     </details>
     <details class="faq">
-      <summary>Can I request notes for a subject that isn't listed?</summary>
-      <p>Yes. Message on WhatsApp or use the contact form below with the subject, semester and teacher's name if known.</p>
+      <summary>किसी नए subject के notes माँग सकते हैं?</summary>
+      <p>हाँ। WhatsApp या contact form से subject, semester और teacher का नाम बताएं।</p>
     </details>
     <details class="faq">
-      <summary>Is my data saved anywhere?</summary>
-      <p>No account or personal data is stored on a server. Dark mode preference is saved only in your own browser (localStorage).</p>
+      <summary>क्या मेरा कोई data save होता है?</summary>
+      <p>नहीं। कोई account या personal data server पर नहीं जाता। Dark mode preference सिर्फ आपके browser में save होती है।</p>
     </details>
   </div>
 </section>
 
-<div class="divider" aria-hidden="true"><svg><use href="#motif-peacock"/></svg></div>
+<div class="divider" aria-hidden="true"><span class="divider-motif">📞</span></div>
 
-<!-- ============ Contact ============ -->
-<section class="block" id="contact" aria-labelledby="contactHead">
-  <div class="block-head">
+<!-- Contact -->
+<section class="section" id="contact" aria-labelledby="contactHead">
+  <div class="section-head" style="text-align:center">
     <span class="eyebrow">संपर्क</span>
     <h2 id="contactHead">Contact</h2>
-    <p>Reach out for missing material, corrections, or general queries.</p>
+    <p>Missing material, corrections या queries के लिए।</p>
   </div>
   <div class="contact-grid">
     <div class="contact-card">
-      <h3>Get in touch</h3>
+      <h3>Contact करें</h3>
       <ul class="contact-list">
-        <li>💬 <a href="https://wa.me/919471946465?text=Hello%2C%20I%20need%20study%20material%20from%20your%20college%20website." target="_blank" rel="noopener">WhatsApp: 9471946465</a></li>
+        <li>💬 <a href="https://wa.me/919471946465?text=Hello%2C%20I%20need%20study%20material." target="_blank" rel="noopener">WhatsApp: 9471946465</a></li>
         <li>✉️ <a href="mailto:kvsccollege1@gmail.com">kvsccollege1@gmail.com</a></li>
-        <li>📍 <a href="https://maps.app.goo.gl/qNYtffvVaSrxa6JY8?g_st=ac" target="_blank" rel="noopener">KVSC College, Uchhaith, Benipatti — view on Google Maps</a></li>
+        <li>📍 <a href="https://maps.app.goo.gl/qNYtffvVaSrxa6JY8?g_st=ac" target="_blank" rel="noopener">KVSC College, Uchhaith, Benipatti — Google Maps</a></li>
       </ul>
       <a class="btn btn-primary btn-block" href="https://forms.gle/YOUR_GOOGLE_FORM_ID" target="_blank" rel="noopener">
         Open Contact Google Form ↗
       </a>
-      <p class="meta" style="margin-top:10px; font-size:.78rem;">
-        ⚠️ Sagar: replace <code>YOUR_GOOGLE_FORM_ID</code> above with your real Google Form link.
-      </p>
     </div>
     <div class="contact-card">
       <h3>Quick message</h3>
-      <p class="meta" style="margin-top:-6px;">This sends you straight to WhatsApp with your details pre-filled — no backend needed.</p>
-      <form id="quickForm" onsubmit="return false;">
-        <div class="form-row">
-          <label for="fName">Student Name</label>
-          <input type="text" id="fName" placeholder="Your full name" required>
-        </div>
-        <div class="form-row">
-          <label for="fMobile">Mobile Number</label>
-          <input type="tel" id="fMobile" placeholder="10-digit mobile number">
-        </div>
-        <div class="form-row">
-          <label for="fSem">Semester</label>
-          <select id="fSem">
-            <option value="">Select semester</option>
-            <option>Semester 1</option><option>Semester 2</option><option>Semester 3</option>
-            <option>Semester 4</option><option>Semester 5</option><option>Semester 6</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="fSubject">Subject</label>
-          <input type="text" id="fSubject" placeholder="e.g. Botany">
-        </div>
-        <div class="form-row">
-          <label for="fMsg">Message</label>
-          <textarea id="fMsg" rows="3" placeholder="What material do you need?"></textarea>
-        </div>
-        <button type="button" class="btn btn-whatsapp btn-block" id="quickFormSend">Send via WhatsApp</button>
-      </form>
+      <p class="meta">WhatsApp पर directly message — कोई backend नहीं।</p>
+      <div class="form-row"><label>आपका नाम</label><input type="text" id="fName" placeholder="पूरा नाम"></div>
+      <div class="form-row"><label>Mobile Number</label><input type="tel" id="fMobile" placeholder="10-digit number"></div>
+      <div class="form-row"><label>Semester</label>
+        <select id="fSem">
+          <option value="">Semester चुनें</option>
+          <option>Semester 1</option><option>Semester 2</option><option>Semester 3</option>
+          <option>Semester 4</option><option>Semester 5</option><option>Semester 6</option>
+        </select>
+      </div>
+      <div class="form-row"><label>Subject</label><input type="text" id="fSubject" placeholder="जैसे: Botany"></div>
+      <div class="form-row"><label>Message</label><textarea id="fMsg" rows="3" placeholder="आपको क्या material चाहिए?"></textarea></div>
+      <button class="btn btn-green btn-block" id="quickFormSend">💬 WhatsApp पर भेजें</button>
     </div>
   </div>
 </section>
 
+</div><!-- #mainContent -->
+
 </main>
 
-<!-- ============ Footer ============ -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-grid">
     <div>
       <h4>KVSC College</h4>
-      <p style="color:#EADFC9; font-size:.88rem;">Kalidas Vidyapati Science College, Uchhaith, Benipatti, Madhubani, Bihar. Student-run study materials portal.</p>
-      <div style="display:flex; gap:10px; margin-top:10px;">
-        <button class="btn btn-sm btn-outline" style="border-color:#EADFC9; color:#EADFC9;" id="shareBtn">🔗 Share</button>
-        <button class="btn btn-sm btn-outline" style="border-color:#EADFC9; color:#EADFC9;" id="copyLinkBtn">📋 Copy Link</button>
+      <p style="color:rgba(255,255,255,.7); font-size:.86rem;">Kalidas Vidyapati Science College, Uchhaith, Benipatti, Madhubani, Bihar। Student-run study materials portal।</p>
+      <div style="display:flex; gap:9px; margin-top:12px;">
+        <button class="btn btn-sm" style="border:1px solid rgba(255,255,255,.3); color:rgba(255,255,255,.8); background:transparent;" id="shareBtn">🔗 Share</button>
+        <button class="btn btn-sm" style="border:1px solid rgba(255,255,255,.3); color:rgba(255,255,255,.8); background:transparent;" id="copyLinkBtn">📋 Copy Link</button>
       </div>
     </div>
     <div>
@@ -650,6 +888,8 @@ footer{background:var(--ink); color:var(--parchment); margin-top:60px; padding:4
         <li><a href="#library">PDF Library</a></li>
         <li><a href="#papers">Question Papers</a></li>
         <li><a href="#notifications">Notifications</a></li>
+        <li><a href="#faculty">Faculty</a></li>
+        <li><a href="#gallery">Gallery</a></li>
       </ul>
     </div>
     <div>
@@ -657,183 +897,129 @@ footer{background:var(--ink); color:var(--parchment); margin-top:60px; padding:4
       <ul>
         <li><a href="https://wa.me/919471946465">WhatsApp: 9471946465</a></li>
         <li><a href="mailto:kvsccollege1@gmail.com">kvsccollege1@gmail.com</a></li>
-        <li><a href="https://maps.app.goo.gl/qNYtffvVaSrxa6JY8?g_st=ac" target="_blank" rel="noopener">College Location</a></li>
+        <li><a href="https://maps.app.goo.gl/qNYtffvVaSrxa6JY8?g_st=ac" target="_blank">College Location</a></li>
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">© <span id="year"></span> KVSC Study Materials — By Sagar. Built for KVSC College students.</div>
+  <div class="footer-bottom">© <span id="year"></span> KVSC Study Materials — By Sagar. KVSC College students के लिए।</div>
 </footer>
 
-<a class="fab" id="whatsappFab" href="https://wa.me/919471946465?text=Hello%2C%20I%20need%20study%20material%20from%20your%20college%20website." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
-<button class="fab top" id="backToTop" aria-label="Back to top">↑</button>
+<a class="fab" id="whatsappFab" href="https://wa.me/919471946465?text=Hello%2C%20I%20need%20study%20material." target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<button class="fab fab-top" id="backToTop" aria-label="Back to top">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<!-- Lightbox for gallery -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
 <script>
-/* ==========================================================
-   CONTENT DATA — edit these arrays to add/change resources.
-   pdfLink: '' (empty) automatically shows a "Request on
-   WhatsApp" button instead of Download. Fill it with a real
-   Google Drive / hosted PDF link to enable direct download.
-   ========================================================== */
+/* ===================================================
+   KVSC STUDY MATERIALS v2 — Data + Logic
+   =================================================== */
 
+const WA_NUMBER = '919471946465';
+const waLink = msg => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+/* ---- Google Sheet CSV URL (your original) ---- */
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQkS1dUVmuv6j5OC-xtPsdhmCYQM6jQH5TUXv7VOQAtCLzkspJw7_CaiidiqHmrNSKqsjBiKkedua9m/pub?output=csv';
+
+/* ---- FACULTY Sheet CSV URL ---- */
+/* अपनी Faculty Google Sheet का published CSV link यहाँ paste करें: */
+const FACULTY_SHEET_URL = '';
+
+/* ---- GALLERY Sheet CSV URL ---- */
+/* Photo Gallery Sheet का published CSV link यहाँ paste करें: */
+const GALLERY_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTGbPHS930KN2rMYWTAZAff3eNCCPnngR7BzBJnrOA0WEnXl-TPL-r6EUTPTSKjzMfGaRW-lS2846T/pub?output=csv';
+
+/* ============================================================
+   BUILT-IN SAMPLE DATA (fallback if sheet not loaded)
+   ============================================================ */
 let ASSIGNMENTS = [
-  {id:'a1', subject:'Botany', semester:'3', course:'B.Sc.', title:'Plant Anatomy — Assignment 2', date:'2026-08-01', desc:'Structure and function of plant tissues, with labelled diagrams.', pdfLink:'', isNew:true},
-  {id:'a2', subject:'Zoology', semester:'3', course:'B.Sc.', title:'Animal Physiology — Assignment 1', date:'2026-07-28', desc:'Digestive and circulatory systems in vertebrates.', pdfLink:'materials/zoology-sem3-a1.pdf', isNew:true},
-  {id:'a3', subject:'Physics', semester:'1', course:'B.Sc.', title:'Mechanics — Problem Set 1', date:'2026-07-20', desc:'Laws of motion, friction and simple harmonic motion problems.', pdfLink:'materials/physics-sem1-a1.pdf', isNew:false},
-  {id:'a4', subject:'Chemistry', semester:'1', course:'B.Sc.', title:'Atomic Structure — Assignment 1', date:'2026-07-18', desc:'Quantum numbers, orbitals and electronic configuration.', pdfLink:'', isNew:false},
-  {id:'a5', subject:'Mathematics', semester:'2', course:'B.Sc.', title:'Differential Equations — Set 3', date:'2026-07-15', desc:'First order and linear differential equations with solved examples.', pdfLink:'materials/maths-sem2-a3.pdf', isNew:false},
-  {id:'a6', subject:'Computer Science', semester:'2', course:'B.Sc.', title:'C Programming — Lab Assignment', date:'2026-07-10', desc:'Loops, arrays and functions — 10 practice programs.', pdfLink:'materials/cs-sem2-a1.pdf', isNew:false},
-  {id:'a7', subject:'Botany', semester:'1', course:'B.Sc.', title:'Cell Biology — Assignment 1', date:'2026-07-05', desc:'Cell organelles and their functions.', pdfLink:'', isNew:false},
-  {id:'a8', subject:'Zoology', semester:'1', course:'B.Sc.', title:'Animal Diversity — Assignment 1', date:'2026-07-02', desc:'Classification of Protozoa to Porifera with examples.', pdfLink:'materials/zoology-sem1-a1.pdf', isNew:false},
-  {id:'a9', subject:'Physics', semester:'3', course:'B.Sc.', title:'Waves & Optics — Assignment 2', date:'2026-06-28', desc:'Interference, diffraction and polarisation numericals.', pdfLink:'', isNew:false},
-  {id:'a10', subject:'Chemistry', semester:'3', course:'B.Sc.', title:'Organic Reactions — Assignment 2', date:'2026-06-25', desc:'Nucleophilic substitution and elimination reactions.', pdfLink:'materials/chem-sem3-a2.pdf', isNew:false},
-  {id:'a11', subject:'Mathematics', semester:'4', course:'B.Sc.', title:'Real Analysis — Assignment 1', date:'2026-06-20', desc:'Sequences, limits and continuity — proof-based problems.', pdfLink:'', isNew:false},
-  {id:'a12', subject:'Environmental Science', semester:'2', course:'B.Sc.', title:'Ecosystem Study — Assignment 1', date:'2026-06-15', desc:'Structure and function of a local pond ecosystem.', pdfLink:'materials/envsc-sem2-a1.pdf', isNew:false},
-  {id:'a13', subject:'Botany', semester:'5', course:'B.Sc.', title:'Plant Pathology — Assignment 1', date:'2026-06-10', desc:'Common fungal diseases in crop plants.', pdfLink:'', isNew:false},
-  {id:'a14', subject:'Zoology', semester:'5', course:'B.Sc.', title:'Genetics — Assignment 2', date:'2026-06-05', desc:'Mendelian inheritance and pedigree analysis.', pdfLink:'materials/zoology-sem5-a2.pdf', isNew:false},
-  {id:'a15', subject:'Physics', semester:'5', course:'B.Sc.', title:'Quantum Mechanics — Assignment 1', date:'2026-05-30', desc:'Schrödinger equation, basic applications.', pdfLink:'', isNew:false},
-  {id:'a16', subject:'Chemistry', semester:'5', course:'B.Sc.', title:'Physical Chemistry — Assignment 3', date:'2026-05-25', desc:'Thermodynamics — entropy and free energy problems.', pdfLink:'materials/chem-sem5-a3.pdf', isNew:false},
-  {id:'a17', subject:'Mathematics', semester:'6', course:'B.Sc.', title:'Numerical Methods — Assignment 1', date:'2026-05-20', desc:'Newton-Raphson method and Simpson rule practice problems.', pdfLink:'', isNew:false},
-  {id:'a18', subject:'Computer Science', semester:'6', course:'B.Sc.', title:'Data Structures — Assignment 2', date:'2026-05-15', desc:'Linked lists, stacks and queues implementation tasks.', pdfLink:'materials/cs-sem6-a2.pdf', isNew:false},
+  {id:'a1',subject:'Botany',semester:'3',course:'B.Sc.',title:'Plant Anatomy — Assignment 2',date:'2026-08-01',desc:'Structure and function of plant tissues, with labelled diagrams.',pdfLink:'',isNew:true},
+  {id:'a2',subject:'Zoology',semester:'3',course:'B.Sc.',title:'Animal Physiology — Assignment 1',date:'2026-07-28',desc:'Digestive and circulatory systems in vertebrates.',pdfLink:'materials/zoology-sem3-a1.pdf',isNew:true},
+  {id:'a3',subject:'Physics',semester:'1',course:'B.Sc.',title:'Mechanics — Problem Set 1',date:'2026-07-20',desc:'Laws of motion, friction and simple harmonic motion.',pdfLink:'materials/physics-sem1-a1.pdf',isNew:false},
+  {id:'a4',subject:'Chemistry',semester:'1',course:'B.Sc.',title:'Atomic Structure — Assignment 1',date:'2026-07-18',desc:'Quantum numbers, orbitals and electronic configuration.',pdfLink:'',isNew:false},
+  {id:'a5',subject:'Mathematics',semester:'2',course:'B.Sc.',title:'Differential Equations — Set 3',date:'2026-07-15',desc:'First order and linear differential equations.',pdfLink:'materials/maths-sem2-a3.pdf',isNew:false},
+  {id:'a6',subject:'Computer Science',semester:'2',course:'B.Sc.',title:'C Programming — Lab Assignment',date:'2026-07-10',desc:'Loops, arrays and functions — 10 practice programs.',pdfLink:'',isNew:false},
+  {id:'a7',subject:'Botany',semester:'1',course:'B.Sc.',title:'Cell Biology — Assignment 1',date:'2026-07-05',desc:'Cell organelles and their functions.',pdfLink:'',isNew:false},
+  {id:'a8',subject:'Zoology',semester:'1',course:'B.Sc.',title:'Animal Diversity — Assignment 1',date:'2026-07-02',desc:'Classification of Protozoa to Porifera.',pdfLink:'materials/zoology-sem1-a1.pdf',isNew:false},
 ];
-
 let NOTES = [
-  {id:'n1', subject:'Botany', teacher:'Dr. R. K. Jha', semester:'3', fileType:'PDF', title:'Plant Anatomy — Full Notes', pdfLink:'materials/botany-sem3-notes.pdf', isNew:true},
-  {id:'n2', subject:'Zoology', teacher:'Dr. S. Mishra', semester:'3', fileType:'PDF', title:'Animal Physiology Notes', pdfLink:'', isNew:false},
-  {id:'n3', subject:'Physics', teacher:'Prof. A. Thakur', semester:'1', fileType:'PDF', title:'Mechanics — Unit Notes', pdfLink:'materials/physics-sem1-notes.pdf', isNew:false},
-  {id:'n4', subject:'Chemistry', teacher:'Dr. N. Kumar', semester:'1', fileType:'PDF', title:'Atomic Structure Notes', pdfLink:'', isNew:false},
-  {id:'n5', subject:'Mathematics', teacher:'Prof. V. Singh', semester:'2', fileType:'PDF', title:'Differential Equations Notes', pdfLink:'materials/maths-sem2-notes.pdf', isNew:false},
-  {id:'n6', subject:'Computer Science', teacher:'Mr. P. Chaudhary', semester:'2', fileType:'PDF', title:'C Programming Notes', pdfLink:'', isNew:false},
-  {id:'n7', subject:'Botany', teacher:'Dr. R. K. Jha', semester:'1', fileType:'PDF', title:'Cell Biology Notes', pdfLink:'materials/botany-sem1-notes.pdf', isNew:false},
-  {id:'n8', subject:'Zoology', teacher:'Dr. S. Mishra', semester:'5', fileType:'PDF', title:'Genetics — Detailed Notes', pdfLink:'', isNew:false},
-  {id:'n9', subject:'Physics', teacher:'Prof. A. Thakur', semester:'5', fileType:'PDF', title:'Quantum Mechanics Notes', pdfLink:'materials/physics-sem5-notes.pdf', isNew:false},
-  {id:'n10', subject:'Chemistry', teacher:'Dr. N. Kumar', semester:'5', fileType:'PDF', title:'Physical Chemistry Notes', pdfLink:'', isNew:false},
-  {id:'n11', subject:'Mathematics', teacher:'Prof. V. Singh', semester:'6', fileType:'PDF', title:'Numerical Methods Notes', pdfLink:'materials/maths-sem6-notes.pdf', isNew:false},
-  {id:'n12', subject:'Environmental Science', teacher:'Dr. M. Kumari', semester:'2', fileType:'PDF', title:'Ecosystem Notes', pdfLink:'', isNew:false},
+  {id:'n1',subject:'Botany',teacher:'Dr. R. K. Jha',semester:'3',fileType:'PDF',title:'Plant Anatomy — Full Notes',pdfLink:'materials/botany-sem3-notes.pdf',isNew:true},
+  {id:'n2',subject:'Zoology',teacher:'Dr. S. Mishra',semester:'3',fileType:'PDF',title:'Animal Physiology Notes',pdfLink:'',isNew:false},
+  {id:'n3',subject:'Physics',teacher:'Prof. A. Thakur',semester:'1',fileType:'PDF',title:'Mechanics — Unit Notes',pdfLink:'materials/physics-sem1-notes.pdf',isNew:false},
+  {id:'n4',subject:'Chemistry',teacher:'Dr. N. Kumar',semester:'1',fileType:'PDF',title:'Atomic Structure Notes',pdfLink:'',isNew:false},
+  {id:'n5',subject:'Mathematics',teacher:'Prof. V. Singh',semester:'2',fileType:'PDF',title:'Differential Equations Notes',pdfLink:'materials/maths-sem2-notes.pdf',isNew:false},
 ];
-
 let LIBRARY = [
-  {id:'l1', title:'NCERT Botany Reference', subject:'Botany', semester:'1', size:'4.2 MB', pdfLink:'', isNew:false},
-  {id:'l2', title:'Concepts of Physics Vol 1', subject:'Physics', semester:'1', size:'12 MB', pdfLink:'materials/physics-book1.pdf', isNew:false},
-  {id:'l3', title:'Organic Chemistry Reference', subject:'Chemistry', semester:'3', size:'8.5 MB', pdfLink:'', isNew:true},
-  {id:'l4', title:'Higher Algebra', subject:'Mathematics', semester:'2', size:'6.1 MB', pdfLink:'materials/maths-book1.pdf', isNew:false},
-  {id:'l5', title:'Animal Diversity Reference', subject:'Zoology', semester:'1', size:'9 MB', pdfLink:'', isNew:false},
-  {id:'l6', title:'Data Structures in C', subject:'Computer Science', semester:'6', size:'5.4 MB', pdfLink:'materials/cs-book1.pdf', isNew:false},
-  {id:'l7', title:'Environmental Studies Reference', subject:'Environmental Science', semester:'2', size:'3.8 MB', pdfLink:'', isNew:false},
-  {id:'l8', title:'Genetics Reference Guide', subject:'Zoology', semester:'5', size:'7.2 MB', pdfLink:'materials/zoology-book1.pdf', isNew:false},
+  {id:'l1',title:'NCERT Botany Reference',subject:'Botany',semester:'1',size:'4.2 MB',pdfLink:'',isNew:false},
+  {id:'l2',title:'Concepts of Physics Vol 1',subject:'Physics',semester:'1',size:'12 MB',pdfLink:'materials/physics-book1.pdf',isNew:false},
+  {id:'l3',title:'Organic Chemistry Reference',subject:'Chemistry',semester:'3',size:'8.5 MB',pdfLink:'',isNew:true},
+  {id:'l4',title:'Higher Algebra',subject:'Mathematics',semester:'2',size:'6.1 MB',pdfLink:'materials/maths-book1.pdf',isNew:false},
 ];
-
 let PAPERS = [
-  {id:'p1', year:'2026', subject:'Botany', semester:'3', pdfLink:'', isNew:true},
-  {id:'p2', year:'2025', subject:'Zoology', semester:'3', pdfLink:'materials/zoology-sem3-2025.pdf', isNew:false},
-  {id:'p3', year:'2025', subject:'Physics', semester:'1', pdfLink:'', isNew:false},
-  {id:'p4', year:'2025', subject:'Chemistry', semester:'1', pdfLink:'materials/chem-sem1-2025.pdf', isNew:false},
-  {id:'p5', year:'2024', subject:'Mathematics', semester:'2', pdfLink:'', isNew:false},
-  {id:'p6', year:'2024', subject:'Computer Science', semester:'2', pdfLink:'materials/cs-sem2-2024.pdf', isNew:false},
-  {id:'p7', year:'2024', subject:'Botany', semester:'5', pdfLink:'', isNew:false},
-  {id:'p8', year:'2023', subject:'Zoology', semester:'5', pdfLink:'materials/zoology-sem5-2023.pdf', isNew:false},
-  {id:'p9', year:'2023', subject:'Physics', semester:'5', pdfLink:'', isNew:false},
-  {id:'p10', year:'2022', subject:'Mathematics', semester:'6', pdfLink:'materials/maths-sem6-2022.pdf', isNew:false},
+  {id:'p1',year:'2026',subject:'Botany',semester:'3',pdfLink:'',isNew:true},
+  {id:'p2',year:'2025',subject:'Zoology',semester:'3',pdfLink:'materials/zoology-sem3-2025.pdf',isNew:false},
+  {id:'p3',year:'2025',subject:'Physics',semester:'1',pdfLink:'',isNew:false},
+  {id:'p4',year:'2025',subject:'Chemistry',semester:'1',pdfLink:'materials/chem-sem1-2025.pdf',isNew:false},
+  {id:'p5',year:'2024',subject:'Mathematics',semester:'2',pdfLink:'',isNew:false},
 ];
-
 let NOTIFICATIONS = [
-  {id:'nt1', title:'Semester 5 & 6 Internal Exam Routine Released', date:'2026-08-15', category:'Exam', desc:'Internal exam routine for Semester 5 and 6 students is now available. Check dates carefully.', attachment:'', isNew:true},
-  {id:'nt2', title:'Semester 3 Practical Exam Schedule', date:'2026-08-10', category:'Exam', desc:'Practical exams for Botany and Zoology begin next week. Report to lab 30 minutes early.', attachment:'', isNew:true},
-  {id:'nt3', title:'Library Timing Extended', date:'2026-08-05', category:'General', desc:'Central library will remain open till 7 PM on weekdays during exam season.', attachment:'', isNew:false},
-  {id:'nt4', title:'Semester 4 Result Declared', date:'2026-07-30', category:'Result', desc:'Semester 4 results are out. Collect marksheets from the exam section.', attachment:'', isNew:false},
-  {id:'nt5', title:'College Closed — Regional Holiday', date:'2026-07-22', category:'Holiday', desc:'College will remain closed on account of a regional holiday. Classes resume the next working day.', attachment:'', isNew:false},
-  {id:'nt6', title:'New Admission Notice — Add-on Courses', date:'2026-07-15', category:'Admission', desc:'Applications open for certificate add-on courses. Forms available at the college office.', attachment:'', isNew:false},
-  {id:'nt7', title:'Scholarship Form Deadline Extended', date:'2026-07-08', category:'General', desc:'Last date to submit state scholarship forms extended by one week.', attachment:'', isNew:false},
-  {id:'nt8', title:'Semester 1 Orientation Schedule', date:'2026-07-01', category:'General', desc:'Orientation for newly admitted Semester 1 students will be held in the main auditorium.', attachment:'', isNew:false},
+  {id:'nt1',title:'Semester 5 & 6 Internal Exam Routine Released',date:'2026-08-15',category:'Exam',desc:'Internal exam routine for Semester 5 and 6 students is now available.',attachment:'',isNew:true},
+  {id:'nt2',title:'Semester 3 Practical Exam Schedule',date:'2026-08-10',category:'Exam',desc:'Practical exams for Botany and Zoology begin next week.',attachment:'',isNew:true},
+  {id:'nt3',title:'Library Timing Extended',date:'2026-08-05',category:'General',desc:'Central library will remain open till 7 PM on weekdays during exam season.',attachment:'',isNew:false},
+  {id:'nt4',title:'Semester 4 Result Declared',date:'2026-07-30',category:'Result',desc:'Semester 4 results are out. Collect marksheets from exam section.',attachment:'',isNew:false},
 ];
 
-/* ==========================================================
-   LIVE CONTENT FROM GOOGLE SHEET (optional "admin panel")
-   ==========================================================
-   Paste your published-to-web CSV link below and the site will
-   load ALL content from your Google Sheet instead of the sample
-   data above — update the Sheet any time, no code editing, no
-   re-uploading to GitHub ever again.
+let FACULTY = [];
+let GALLERY = [];
 
-   Setup (one-time):
-   1. Make a copy of the template sheet (link in the chat / see
-      kvsc-sheet-template.csv) with columns:
-      type | subject | semester | title | description | date | extra | link | new
-   2. In Google Sheets: File -> Share -> Publish to web
-      -> choose the sheet tab -> format "Comma-separated values (.csv)" -> Publish
-   3. Copy the link it gives you and paste it below between the quotes.
-
-   Leave it as '' (empty) to keep using the sample data above.
-   ========================================================== */
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRjdAqv0r9HpR7dXoHqB4QbbH-EVvo_kFbvGv5K2pCQhOMpU8ZMVm1Oz3h2G7F-qba2xAKNnTwUpZpV/pub?output=csv';
-
-function flatKey(s){ return (s || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+/* ============================================================
+   CSV PARSER
+   ============================================================ */
+function flatKey(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]/g,''); }
 
 function parseCSV(text){
-  const rows = [];
-  let i = 0, field = '', row = [], inQuotes = false;
-  while(i < text.length){
-    const c = text[i];
-    if(inQuotes){
-      if(c === '"'){
-        if(text[i+1] === '"'){ field += '"'; i += 2; continue; }
-        inQuotes = false; i++; continue;
-      }
-      field += c; i++; continue;
-    }
-    if(c === '"'){ inQuotes = true; i++; continue; }
-    if(c === ','){ row.push(field); field = ''; i++; continue; }
-    if(c === '\r'){ i++; continue; }
-    if(c === '\n'){ row.push(field); rows.push(row); row = []; field = ''; i++; continue; }
-    field += c; i++;
+  const rows=[]; let i=0,field='',row=[],inQ=false;
+  while(i<text.length){
+    const c=text[i];
+    if(inQ){ if(c==='"'){ if(text[i+1]==='"'){field+='"';i+=2;continue;} inQ=false;i++;continue; } field+=c;i++;continue; }
+    if(c==='"'){inQ=true;i++;continue;}
+    if(c===','){row.push(field);field='';i++;continue;}
+    if(c==='\r'){i++;continue;}
+    if(c==='\n'){row.push(field);rows.push(row);row=[];field='';i++;continue;}
+    field+=c;i++;
   }
-  if(field.length || row.length){ row.push(field); rows.push(row); }
+  if(field.length||row.length){row.push(field);rows.push(row);}
   if(!rows.length) return [];
-  // Flat keys so header spelling/spacing/punctuation doesn't matter:
-  // "Pdf link" -> pdflink, "Category " -> category, "Discription " -> discription, etc.
-  const headers = rows[0].map(h => flatKey(h));
-  return rows.slice(1)
-    .filter(r => r.some(v => (v || '').trim() !== ''))
-    .map(r => {
-      const obj = {};
-      headers.forEach((h, idx) => obj[h] = (r[idx] || '').trim());
-      return obj;
-    });
+  const headers=rows[0].map(h=>flatKey(h));
+  return rows.slice(1).filter(r=>r.some(v=>(v||'').trim()!=='')).map(r=>{ const o={}; headers.forEach((h,idx)=>o[h]=(r[idx]||'').trim()); return o; });
 }
 
 function buildFromSheetRows(rows){
-  const out = {assignments:[], notes:[], library:[], papers:[], notifications:[]};
-  rows.forEach((r, i) => {
-    // Supports either the original template headers (type/description/date/link/extra/new)
-    // OR a Google Form response sheet (Timestamp/Category/Semester/Subject/Title/Discription/Pdf link).
-    const t = (r.type || r.category || '').toLowerCase();
-    const link = r.link || r.pdflink || '';
-    const semester = r.semester || '';
-    const subject = r.subject || '';
-    const title = r.title || '';
-    const desc = r.description || r.discription || r.desc || '';
-    const extra = r.extra || '';
-    const rawDate = r.date || r.timestamp || '';
-    const parsedTs = rawDate ? new Date(rawDate) : null;
-    const tsValid = parsedTs && !isNaN(parsedTs.getTime());
-    const isoDate = tsValid ? parsedTs.toISOString().slice(0, 10) : (rawDate.split(' ')[0] || '2026-01-01');
-    const year = tsValid ? String(parsedTs.getFullYear()) : (rawDate.split(/[-\/]/)[0] || extra || '—');
-    // If there's no explicit "new" column, auto-mark items added in the last 14 days as New.
-    const isNew = r.new
-      ? /^(true|yes|1)$/i.test(r.new)
-      : (tsValid && (Date.now() - parsedTs.getTime()) < 14 * 24 * 60 * 60 * 1000);
-    const id = 'sh' + i;
-    if(t.startsWith('assign')){
-      out.assignments.push({id, subject, semester, course:'B.Sc.', title, date: isoDate, desc, pdfLink:link, isNew});
-    } else if(t.startsWith('note')){
-      out.notes.push({id, subject, teacher: extra || '—', semester, fileType:'PDF', title, pdfLink:link, isNew});
-    } else if(t.startsWith('pdf') || t.startsWith('lib') || t.startsWith('book')){
-      out.library.push({id, title, subject, semester, size: extra || '—', pdfLink:link, isNew});
-    } else if(t.startsWith('paper') || t.startsWith('question')){
-      out.papers.push({id, year, subject, semester, pdfLink:link, isNew});
-    } else if(t.startsWith('notif')){
-      out.notifications.push({id, title, date: isoDate, category: extra || 'General', desc, attachment: link, isNew});
-    }
+  const out={assignments:[],notes:[],library:[],papers:[],notifications:[]};
+  rows.forEach((r,i)=>{
+    const t=(r.type||r.category||'').toLowerCase();
+    const link=r.link||r.pdflink||'';
+    const semester=r.semester||'';
+    const subject=r.subject||'';
+    const title=r.title||'';
+    const desc=r.description||r.discription||r.desc||'';
+    const extra=r.extra||'';
+    const rawDate=r.date||r.timestamp||'';
+    const parsedTs=rawDate?new Date(rawDate):null;
+    const tsValid=parsedTs&&!isNaN(parsedTs.getTime());
+    const isoDate=tsValid?parsedTs.toISOString().slice(0,10):(rawDate.split(' ')[0]||'2026-01-01');
+    const year=tsValid?String(parsedTs.getFullYear()):(rawDate.split(/[-\/]/)[0]||extra||'—');
+    const isNew=r.new?/^(true|yes|1)$/i.test(r.new):(tsValid&&(Date.now()-parsedTs.getTime())<14*24*60*60*1000);
+    const id='sh'+i;
+    if(t.startsWith('assign')) out.assignments.push({id,subject,semester,course:'B.Sc.',title,date:isoDate,desc,pdfLink:link,isNew});
+    else if(t.startsWith('note')) out.notes.push({id,subject,teacher:extra||'—',semester,fileType:'PDF',title,pdfLink:link,isNew});
+    else if(t.startsWith('pdf')||t.startsWith('lib')||t.startsWith('book')) out.library.push({id,title,subject,semester,size:extra||'—',pdfLink:link,isNew});
+    else if(t.startsWith('paper')||t.startsWith('question')) out.papers.push({id,year,subject,semester,pdfLink:link,isNew});
+    else if(t.startsWith('notif')) out.notifications.push({id,title,date:isoDate,category:extra||'General',desc,attachment:link,isNew});
   });
   return out;
 }
@@ -841,318 +1027,410 @@ function buildFromSheetRows(rows){
 async function tryLoadFromSheet(){
   if(!SHEET_CSV_URL) return false;
   try{
-    const bust = (SHEET_CSV_URL.includes('?') ? '&' : '?') + 'cachebust=' + Date.now();
-    const res = await fetch(SHEET_CSV_URL + bust);
-    if(!res.ok) throw new Error('Sheet fetch failed: ' + res.status);
-    const text = await res.text();
-    const rows = parseCSV(text);
-    const built = buildFromSheetRows(rows);
-    const total = built.assignments.length + built.notes.length + built.library.length + built.papers.length + built.notifications.length;
-    if(total === 0) return false;
-    ASSIGNMENTS = built.assignments;
-    NOTES = built.notes;
-    LIBRARY = built.library;
-    PAPERS = built.papers;
-    NOTIFICATIONS = built.notifications;
+    const res=await fetch(SHEET_CSV_URL+'?cachebust='+Date.now());
+    if(!res.ok) throw new Error('Sheet fetch failed');
+    const rows=parseCSV(await res.text());
+    const built=buildFromSheetRows(rows);
+    const total=built.assignments.length+built.notes.length+built.library.length+built.papers.length+built.notifications.length;
+    if(total===0) return false;
+    ASSIGNMENTS=built.assignments; NOTES=built.notes; LIBRARY=built.library; PAPERS=built.papers; NOTIFICATIONS=built.notifications;
     return true;
-  }catch(e){
-    console.warn('KVSC: could not load Google Sheet, showing built-in sample content instead.', e);
-    return false;
-  }
+  }catch(e){ console.warn('Sheet load failed, using sample data.',e); return false; }
 }
 
-/* ========================================================== */
-
-const WA_NUMBER = '919471946465';
-function waLink(msg){ return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`; }
-
-function getDownloadCounts(){
-  try{ return JSON.parse(localStorage.getItem('kvsc-downloads') || '{}'); }catch(e){ return {}; }
+async function tryLoadFaculty(){
+  if(!FACULTY_SHEET_URL){ renderFacultyFallback(); return; }
+  try{
+    const res=await fetch(FACULTY_SHEET_URL+'?cachebust='+Date.now());
+    if(!res.ok) throw new Error();
+    const rows=parseCSV(await res.text());
+    FACULTY=rows.map((r,i)=>({
+      id:'f'+i,
+      name:r.name||r.teachername||'',
+      subject:r.subject||'',
+      phone:r.phone||r.mobile||r.number||'',
+      photo:r.photo||r.photolink||r.image||'',
+    })).filter(f=>f.name);
+    renderFaculty();
+  }catch(e){ renderFacultyFallback(); }
 }
-function bumpDownload(id){
-  const counts = getDownloadCounts();
-  counts[id] = (counts[id]||0) + 1;
-  localStorage.setItem('kvsc-downloads', JSON.stringify(counts));
-  const el = document.getElementById('dl-'+id);
-  if(el) el.textContent = counts[id] + ' downloads';
+
+async function tryLoadGallery(){
+  if(!GALLERY_SHEET_URL){ renderGalleryFallback(); return; }
+  try{
+    const res=await fetch(GALLERY_SHEET_URL+'?cachebust='+Date.now());
+    if(!res.ok) throw new Error();
+    const rows=parseCSV(await res.text());
+    GALLERY=rows.map((r,i)=>({
+      id:'g'+i,
+      title:r.title||r.caption||'College Photo',
+      url:r.url||r.imageurl||r.link||r.photo||'',
+    })).filter(g=>g.url);
+    renderGallery();
+  }catch(e){ renderGalleryFallback(); }
 }
 
-function resourceActionHTML(item, waMessage){
+/* ============================================================
+   CARD BUILDERS
+   ============================================================ */
+function newBadge(item){ return item.isNew?'<span class="badge-new">New</span>':''; }
+function fmtDate(iso){ const d=new Date(iso+'T00:00:00'); return d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}); }
+
+function dlCounts(){ try{ return JSON.parse(localStorage.getItem('kvsc-dl')||'{}'); }catch(e){ return {}; } }
+function recordDl(id){ try{ const c=dlCounts(); c[id]=(c[id]||0)+1; localStorage.setItem('kvsc-dl',JSON.stringify(c)); }catch(e){} }
+function dlCountLabel(item){ const c=dlCounts()[item.id]; return c?`<div class="meta">⬇ ${c} download${c>1?'s':''}</div>`:''; }
+
+function resourceActionHTML(item, waMsg){
   if(item.pdfLink){
-    return `<a href="${item.pdfLink}" class="btn btn-primary btn-sm" download onclick="bumpDownload('${item.id}')">⬇ Download PDF</a>`;
+    const gDriveLink = item.pdfLink.includes('drive.google.com')
+      ? item.pdfLink.replace('/view','/preview').replace('?usp=sharing','')
+      : item.pdfLink;
+    return `<a href="${gDriveLink}" class="btn btn-primary btn-sm" target="_blank" rel="noopener" onclick="recordDl('${item.id}')">⬇ Download</a>
+            <a href="${waLink(waMsg)}" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">💬 WhatsApp</a>`;
   }
-  return `<a href="${waLink(waMessage)}" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">💬 Request on WhatsApp</a>`;
+  return `<a href="${waLink(waMsg)}" class="btn btn-primary btn-sm" target="_blank" rel="noopener">💬 Request on WhatsApp</a>`;
 }
-
-function newBadge(item){
-  return item.isNew ? `<span class="badge-new">New</span>` : '';
-}
-
-function downloadCountLabel(item){
-  const counts = getDownloadCounts();
-  const n = counts[item.id] || 0;
-  return `<span class="dl-count" id="dl-${item.id}">${n} downloads</span>`;
-}
-
-/* ---------- Card renderers ---------- */
 
 function assignmentCard(a){
-  return `
-  <article class="card" data-subject="${a.subject}" data-title="${a.title}" data-semester="${a.semester}" data-type="assignment">
-    <div class="card-top">
-      <div>
-        <span class="tag">${a.subject}</span>
-        <span class="tag tag-sem">Sem ${a.semester}</span>
-      </div>
-      ${newBadge(a)}
-    </div>
+  return `<article class="card" data-subject="${a.subject}" data-title="${a.title}" data-semester="${a.semester}" data-type="assignment">
+    <div class="card-top"><span class="tag">Sem ${a.semester} · ${a.subject}</span>${newBadge(a)}</div>
     <h3>${a.title}</h3>
-    <div class="meta">${a.course} · Uploaded ${formatDate(a.date)}</div>
+    <div class="meta">📅 ${fmtDate(a.date)} · ${a.course}</div>
     <p class="desc">${a.desc}</p>
-    ${downloadCountLabel(a)}
-    <div class="row">
-      ${resourceActionHTML(a, `Hello, I need the assignment "${a.title}" (${a.subject}, Semester ${a.semester}).`)}
-      <a href="${waLink('Hello, I need help with: '+a.title)}" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Need Help?</a>
-    </div>
+    ${dlCountLabel(a)}
+    <div class="card-actions">${resourceActionHTML(a,`Hello, I need the assignment: ${a.title} (${a.subject}, Semester ${a.semester}).`)}</div>
   </article>`;
 }
-
 function noteCard(n){
-  return `
-  <article class="card" data-subject="${n.subject}" data-title="${n.title}" data-semester="${n.semester}" data-type="note">
-    <div class="card-top">
-      <div>
-        <span class="tag">${n.subject}</span>
-        <span class="tag tag-sem">Sem ${n.semester}</span>
-      </div>
-      ${newBadge(n)}
-    </div>
+  return `<article class="card" data-subject="${n.subject}" data-title="${n.title}" data-semester="${n.semester}" data-type="note">
+    <div class="card-top"><span class="tag">Sem ${n.semester} · ${n.subject}</span>${newBadge(n)}</div>
     <h3>${n.title}</h3>
-    <div class="meta">Teacher: ${n.teacher} · ${n.fileType}</div>
-    ${downloadCountLabel(n)}
-    <div class="row">
-      ${resourceActionHTML(n, `Hello, I need notes for "${n.title}" (${n.subject}, Semester ${n.semester}).`)}
-    </div>
+    <div class="meta">👨‍🏫 ${n.teacher} · ${n.fileType}</div>
+    ${dlCountLabel(n)}
+    <div class="card-actions">${resourceActionHTML(n,`Hello, I need the notes: ${n.title} (${n.subject}, Semester ${n.semester}).`)}</div>
   </article>`;
 }
-
 function libCard(l){
-  return `
-  <article class="card" data-subject="${l.subject}" data-title="${l.title}" data-semester="${l.semester}" data-type="pdf">
-    <div class="thumb" role="img" aria-label="${l.title} thumbnail" style="display:flex;align-items:center;justify-content:center;font-size:2rem;">📘</div>
-    <div class="card-top">
-      <div>
-        <span class="tag">${l.subject}</span>
-        <span class="tag tag-sem">Sem ${l.semester}</span>
-      </div>
-      ${newBadge(l)}
-    </div>
+  return `<article class="card" data-subject="${l.subject}" data-title="${l.title}" data-semester="${l.semester}" data-type="library">
+    <div class="card-top"><span class="tag">Sem ${l.semester} · ${l.subject}</span>${newBadge(l)}</div>
     <h3>${l.title}</h3>
-    <div class="meta">File size: ${l.size}</div>
-    ${downloadCountLabel(l)}
-    <div class="row">
-      ${resourceActionHTML(l, `Hello, I need the PDF "${l.title}" (${l.subject}).`)}
-    </div>
+    <div class="meta">📦 ${l.size}</div>
+    ${dlCountLabel(l)}
+    <div class="card-actions">${resourceActionHTML(l,`Hello, I need the PDF: ${l.title} (${l.subject}, Semester ${l.semester}).`)}</div>
   </article>`;
 }
-
 function paperCard(p){
-  return `
-  <article class="card" data-subject="${p.subject}" data-title="${p.subject+' '+p.year}" data-semester="${p.semester}" data-type="paper">
-    <div class="card-top">
-      <div>
-        <span class="tag">${p.subject}</span>
-        <span class="tag tag-sem">Sem ${p.semester}</span>
-      </div>
-      ${newBadge(p)}
-    </div>
+  return `<article class="card" data-subject="${p.subject}" data-title="${p.subject} ${p.year}" data-semester="${p.semester}" data-type="paper">
+    <div class="card-top"><span class="tag">Sem ${p.semester} · ${p.subject}</span>${newBadge(p)}</div>
     <h3>${p.subject} — ${p.year}</h3>
     <div class="meta">Previous Year Question Paper</div>
-    ${downloadCountLabel(p)}
-    <div class="row">
-      ${resourceActionHTML(p, `Hello, I need the ${p.year} question paper for ${p.subject} (Semester ${p.semester}).`)}
-    </div>
+    ${dlCountLabel(p)}
+    <div class="card-actions">${resourceActionHTML(p,`Hello, I need the ${p.year} question paper for ${p.subject} (Semester ${p.semester}).`)}</div>
   </article>`;
 }
-
 function notifCard(n){
-  const safeTitle = n.title.replace(/'/g, "\\'");
-  const safeDesc = n.desc.replace(/'/g, "\\'");
-  return `
-  <article class="card notif-card" data-subject="${n.title}" data-title="${n.title}" data-semester="" data-type="notification">
-    <div class="card-top">
-      <span class="cat">${n.category}</span>
-      ${newBadge(n)}
-    </div>
+  const sT=n.title.replace(/'/g,"\\'"); const sD=n.desc.replace(/'/g,"\\'");
+  return `<article class="card notif-card" data-subject="${n.title}" data-title="${n.title}" data-semester="" data-type="notification">
+    <div class="card-top"><span class="notif-cat">${n.category}</span>${newBadge(n)}</div>
     <h3>${n.title}</h3>
-    <div class="date">${formatDate(n.date)}</div>
+    <div class="notif-date">📅 ${fmtDate(n.date)}</div>
     <p class="desc">${n.desc}</p>
-    <div class="row">
-      <button class="btn btn-outline btn-sm" onclick="alert('${safeTitle}\\n\\n${safeDesc}')">Read More</button>
-      ${n.attachment ? `<a href="${n.attachment}" class="btn btn-primary btn-sm" download>⬇ Attachment</a>` : ''}
+    <div class="card-actions">
+      <button class="btn btn-outline btn-sm" onclick="alert('${sT}\\n\\n${sD}')">Read More</button>
+      ${n.attachment?`<a href="${n.attachment}" class="btn btn-primary btn-sm" download>⬇ Attachment</a>`:''}
     </div>
   </article>`;
 }
 
-function formatDate(iso){
-  const d = new Date(iso+'T00:00:00');
-  return d.toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric'});
-}
-
-/* ---------- Render all sections ---------- */
-
+/* ============================================================
+   RENDER ALL
+   ============================================================ */
 function renderAll(){
-  document.getElementById('assignGrid').innerHTML = ASSIGNMENTS.map(assignmentCard).join('');
-  document.getElementById('notesGrid').innerHTML = NOTES.map(noteCard).join('');
-  document.getElementById('libGrid').innerHTML = LIBRARY.map(libCard).join('');
-  document.getElementById('papersGrid').innerHTML = PAPERS.map(paperCard).join('');
-  document.getElementById('notifGrid').innerHTML = NOTIFICATIONS.slice().sort((a,b)=> new Date(b.date)-new Date(a.date)).map(notifCard).join('');
-  document.getElementById('latestNotifTrack').innerHTML = NOTIFICATIONS.slice().sort((a,b)=> new Date(b.date)-new Date(a.date)).slice(0,5).map(notifCard).join('');
-
-  const featured = [...ASSIGNMENTS.filter(a=>a.isNew), ...NOTES.filter(n=>n.isNew), ...LIBRARY.filter(l=>l.isNew), ...PAPERS.filter(p=>p.isNew)].slice(0,6);
-  const featuredHTML = featured.map(item=>{
+  document.getElementById('assignGrid').innerHTML = ASSIGNMENTS.map(assignmentCard).join('') || '<p class="no-results" style="display:block">No assignments yet.</p>';
+  document.getElementById('notesGrid').innerHTML = NOTES.map(noteCard).join('') || '<p class="no-results" style="display:block">No notes yet.</p>';
+  document.getElementById('libGrid').innerHTML = LIBRARY.map(libCard).join('') || '<p class="no-results" style="display:block">No PDFs yet.</p>';
+  document.getElementById('papersGrid').innerHTML = PAPERS.map(paperCard).join('') || '<p class="no-results" style="display:block">No papers yet.</p>';
+  const sortedNotif = NOTIFICATIONS.slice().sort((a,b)=>new Date(b.date)-new Date(a.date));
+  document.getElementById('notifGrid').innerHTML = sortedNotif.map(notifCard).join('') || '<p style="text-align:center;color:var(--ink2);padding:20px">No notifications.</p>';
+  document.getElementById('latestNotifTrack').innerHTML = sortedNotif.slice(0,5).map(notifCard).join('');
+  const featured=[...ASSIGNMENTS.filter(a=>a.isNew),...NOTES.filter(n=>n.isNew),...LIBRARY.filter(l=>l.isNew),...PAPERS.filter(p=>p.isNew)].slice(0,6);
+  const featuredHTML=featured.map(item=>{
     if(ASSIGNMENTS.includes(item)) return assignmentCard(item);
     if(NOTES.includes(item)) return noteCard(item);
     if(LIBRARY.includes(item)) return libCard(item);
     return paperCard(item);
   }).join('');
-  document.getElementById('featuredTrack').innerHTML = featuredHTML || '<p class="meta">No featured items right now.</p>';
+  document.getElementById('featuredTrack').innerHTML = featuredHTML || '<p style="color:var(--ink2);padding:16px;font-style:italic">अभी कोई featured item नहीं।</p>';
 }
 
-/* ---------- Search + semester filter (live, across all sections) ---------- */
-
-function applyFilters(){
-  const q = document.getElementById('searchInput').value.trim().toLowerCase();
-  const activeChip = document.querySelector('.chip.active');
-  const sem = activeChip ? activeChip.dataset.sem : 'all';
-
-  document.querySelectorAll('#assignGrid .card, #notesGrid .card, #libGrid .card, #papersGrid .card, #notifGrid .card').forEach(card=>{
-    const subject = (card.dataset.subject||'').toLowerCase();
-    const title = (card.dataset.title||'').toLowerCase();
-    const cardSem = card.dataset.semester || '';
-    const matchesText = !q || subject.includes(q) || title.includes(q);
-    const matchesSem = sem === 'all' || cardSem === '' || cardSem === sem;
-    card.style.display = (matchesText && matchesSem) ? '' : 'none';
-  });
-
-  ['assign','notes','lib','papers'].forEach(key=>{
-    const grid = document.getElementById(key+'Grid');
-    const empty = document.getElementById(key+'Empty');
-    if(!grid || !empty) return;
-    const visible = Array.from(grid.children).some(c=>c.style.display!=='none');
-    empty.style.display = visible ? 'none' : 'block';
-  });
+/* ============================================================
+   FACULTY RENDER
+   ============================================================ */
+function facultyCard(f){
+  return `<div class="faculty-card">
+    <div class="faculty-photo">${f.photo?`<img src="${f.photo}" alt="${f.name}" loading="lazy">`:'👨‍🏫'}</div>
+    <div class="faculty-name">${f.name}</div>
+    <div class="faculty-subject">${f.subject}</div>
+    ${f.phone?`<div class="faculty-phone"><a href="tel:${f.phone}">📞 ${f.phone}</a></div>`:''}
+  </div>`;
+}
+function renderFaculty(){
+  const grid=document.getElementById('facultyGrid');
+  grid.innerHTML = FACULTY.length ? FACULTY.map(facultyCard).join('') : '<p class="loading-indicator">Faculty data आने वाली है। FACULTY_SHEET_URL set करें।</p>';
+}
+function renderFacultyFallback(){
+  document.getElementById('facultyGrid').innerHTML = '<p class="loading-indicator">Faculty data के लिए FACULTY_SHEET_URL set करें — ऊपर script में।</p>';
 }
 
-document.getElementById('searchInput').addEventListener('input', applyFilters);
-document.getElementById('searchClearBtn').addEventListener('click', ()=>{
-  document.getElementById('searchInput').value=''; applyFilters();
+/* ============================================================
+   GALLERY RENDER
+   ============================================================ */
+function renderGallery(){
+  const grid=document.getElementById('galleryGrid');
+  if(!GALLERY.length){ grid.innerHTML='<div class="gallery-empty" style="grid-column:1/-1">📷 कोई photo नहीं मिली। GALLERY_SHEET_URL set करें।</div>'; return; }
+  grid.innerHTML=GALLERY.map((g,i)=>`<div class="gallery-item" onclick="openLightbox('${g.url}','${g.title}')">
+    <img src="${g.url}" alt="${g.title}" loading="lazy">
+  </div>`).join('');
+}
+function renderGalleryFallback(){
+  document.getElementById('galleryGrid').innerHTML='<div class="gallery-empty" style="grid-column:1/-1">📷 Gallery के लिए GALLERY_SHEET_URL set करें।</div>';
+}
+function openLightbox(url,alt){
+  document.getElementById('lightboxImg').src=url;
+  document.getElementById('lightboxImg').alt=alt;
+  document.getElementById('lightbox').classList.add('open');
+}
+document.getElementById('lightboxClose').addEventListener('click',()=>document.getElementById('lightbox').classList.remove('open'));
+document.getElementById('lightbox').addEventListener('click',e=>{ if(e.target===e.currentTarget) e.currentTarget.classList.remove('open'); });
+
+/* ============================================================
+   SEARCH — fixed: icon visible, clear hidden until text typed
+   ============================================================ */
+const searchInput = document.getElementById('searchInput');
+const searchWrap = document.getElementById('searchWrap');
+const searchClearBtn = document.getElementById('searchClearBtn');
+
+const searchBtn = document.getElementById('searchBtn');
+
+function updateSearchUI(){
+  const hasText = searchInput.value.trim().length > 0;
+  searchIconBtn.style.display = hasText ? 'none' : 'flex';
+  searchBtn.style.display = hasText ? 'flex' : 'none';
+  searchClearBtn.style.display = hasText ? 'flex' : 'none';
+}
+
+searchInput.addEventListener('input', () => {
+  updateSearchUI();
+  applyFilters();
 });
 
-document.getElementById('filterRow').addEventListener('click', (e)=>{
-  const chip = e.target.closest('.chip');
+searchBtn.addEventListener('click', () => {
+  applyFilters();
+});
+
+searchInput.addEventListener('keydown', e => {
+  if(e.key === 'Enter') applyFilters();
+});
+
+searchClearBtn.addEventListener('click', () => {
+  searchInput.value = '';
+  updateSearchUI();
+  applyFilters();
+  searchInput.focus();
+});
+
+/* ============================================================
+   SEMESTER FILTER — fixed: shows ALL content for that semester
+   ============================================================ */
+let currentSem = 'all';
+
+function applyFilters(){
+  const q = searchInput.value.trim().toLowerCase();
+  const sem = currentSem;
+
+  if(sem !== 'all' && !q){
+    // Show unified semester view
+    showSemesterView(sem);
+    return;
+  }
+
+  // Hide semester view, show main content
+  document.getElementById('semesterView').classList.remove('active');
+  document.getElementById('mainContent').style.display = '';
+
+  // Filter cards
+  document.querySelectorAll('#assignGrid .card, #notesGrid .card, #libGrid .card, #papersGrid .card, #notifGrid .card').forEach(card=>{
+    const subject=(card.dataset.subject||'').toLowerCase();
+    const title=(card.dataset.title||'').toLowerCase();
+    const cardSem=card.dataset.semester||'';
+    const matchText=!q||subject.includes(q)||title.includes(q);
+    const matchSem=sem==='all'||cardSem===''||cardSem===sem;
+    card.style.display=(matchText&&matchSem)?'':'none';
+  });
+  ['assign','notes','lib','papers'].forEach(key=>{
+    const grid=document.getElementById(key+'Grid');
+    const empty=document.getElementById(key+'Empty');
+    if(!grid||!empty) return;
+    const visible=Array.from(grid.children).some(c=>c.style.display!=='none');
+    empty.style.display=visible?'none':'block';
+  });
+}
+
+function showSemesterView(sem){
+  document.getElementById('semesterView').classList.add('active');
+  document.getElementById('mainContent').style.display = 'none';
+  document.getElementById('semViewTitle').textContent = `Semester ${sem} — सभी सामग्री`;
+
+  const fill=(gridId, emptyId, items, cardFn)=>{
+    const filtered=items.filter(x=>x.semester===sem);
+    document.getElementById(gridId).innerHTML=filtered.map(cardFn).join('');
+    document.getElementById(emptyId).style.display=filtered.length?'none':'block';
+  };
+  fill('semAssignGrid','semAssignEmpty',ASSIGNMENTS,assignmentCard);
+  fill('semNotesGrid','semNotesEmpty',NOTES,noteCard);
+  fill('semLibGrid','semLibEmpty',LIBRARY,libCard);
+  fill('semPapersGrid','semPapersEmpty',PAPERS,paperCard);
+
+  const notifAll=NOTIFICATIONS.slice().sort((a,b)=>new Date(b.date)-new Date(a.date));
+  document.getElementById('semNotifGrid').innerHTML=notifAll.map(notifCard).join('');
+  document.getElementById('semNotifEmpty').style.display=notifAll.length?'none':'block';
+}
+
+document.getElementById('semViewBack').addEventListener('click',()=>{
+  currentSem='all';
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  document.querySelector('.chip[data-sem="all"]').classList.add('active');
+  document.getElementById('semesterView').classList.remove('active');
+  document.getElementById('mainContent').style.display='';
+});
+
+document.getElementById('filterRow').addEventListener('click', e=>{
+  const chip=e.target.closest('.chip');
   if(!chip) return;
   document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
   chip.classList.add('active');
+  currentSem=chip.dataset.sem;
   applyFilters();
 });
 
-/* ---------- Dark mode ---------- */
-
+/* ============================================================
+   THEME SWITCHER — 6 themes
+   ============================================================ */
+const themeNames = {
+  mithila:'Mithila', dark:'Dark', blue:'Blue', green:'Green', purple:'Purple', saffron:'Saffron'
+};
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('kvsc-theme',t);
+  document.getElementById('themeLabel').textContent=themeNames[t]||t;
+  document.querySelectorAll('.theme-opt').forEach(o=>o.classList.toggle('active',o.dataset.t===t));
+}
 function initTheme(){
-  const saved = localStorage.getItem('kvsc-theme');
-  const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  document.documentElement.setAttribute('data-theme', theme);
-  document.getElementById('themeToggle').textContent = theme === 'dark' ? '☀️' : '🌙';
+  const saved=localStorage.getItem('kvsc-theme')||'mithila';
+  setTheme(saved);
 }
-document.getElementById('themeToggle').addEventListener('click', ()=>{
-  const current = document.documentElement.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('kvsc-theme', next);
-  document.getElementById('themeToggle').textContent = next === 'dark' ? '☀️' : '🌙';
+document.getElementById('themeBtn').addEventListener('click',e=>{
+  e.stopPropagation();
+  document.getElementById('themeDropdown').classList.toggle('open');
 });
-
-/* ---------- Hamburger menu ---------- */
-
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mainNav = document.getElementById('mainNav');
-hamburgerBtn.addEventListener('click', ()=>{
-  const isOpen = mainNav.classList.toggle('open');
-  hamburgerBtn.setAttribute('aria-expanded', isOpen);
-  hamburgerBtn.textContent = isOpen ? '✕' : '☰';
+document.getElementById('themeDropdown').addEventListener('click',e=>{
+  const opt=e.target.closest('.theme-opt');
+  if(!opt) return;
+  setTheme(opt.dataset.t);
+  document.getElementById('themeDropdown').classList.remove('open');
 });
-mainNav.addEventListener('click', (e)=>{
-  if(e.target.tagName === 'A' && mainNav.classList.contains('open')){
-    mainNav.classList.remove('open');
-    hamburgerBtn.setAttribute('aria-expanded', 'false');
-    hamburgerBtn.textContent = '☰';
-  }
-});
+document.addEventListener('click',()=>document.getElementById('themeDropdown').classList.remove('open'));
 
-/* ---------- Announcement banner dismiss ---------- */
-
-const banner = document.getElementById('banner');
-if(localStorage.getItem('kvsc-banner-dismissed') === '1'){ banner.style.display='none'; }
-document.getElementById('bannerClose').addEventListener('click', ()=>{
-  banner.style.display='none';
-  localStorage.setItem('kvsc-banner-dismissed','1');
-});
-
-/* ---------- Back to top ---------- */
-
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', ()=>{
-  backToTop.classList.toggle('show', window.scrollY > 400);
-});
-backToTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-
-/* ---------- Toast ---------- */
-
-let toastTimer = null;
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=> t.classList.remove('show'), 2400);
+/* ============================================================
+   PARALLAX — 3D Mithila painting on scroll
+   ============================================================ */
+function initParallax(){
+  const svg=document.getElementById('parallaxSvg');
+  if(!svg) return;
+  let ticking=false;
+  window.addEventListener('scroll',()=>{
+    if(!ticking){
+      requestAnimationFrame(()=>{
+        const y=window.scrollY;
+        svg.style.transform=`translate3d(${y*0.03}px, ${y*0.35}px, 0) scale(1.08) rotateX(${y*0.015}deg)`;
+        svg.style.opacity=Math.max(0, 0.07 - y*0.00008);
+        ticking=false;
+      });
+      ticking=true;
+    }
+  },{passive:true});
 }
 
-/* ---------- Share / copy link ---------- */
-
-document.getElementById('shareBtn').addEventListener('click', async ()=>{
-  const shareData = {title:'KVSC Study Materials', text:'Assignments, notes & question papers for KVSC College', url: location.href};
-  if(navigator.share){
-    try{ await navigator.share(shareData); }catch(e){}
-  } else {
-    try{ await navigator.clipboard.writeText(location.href); showToast('Link copied to clipboard!'); }catch(e){ showToast('Could not copy link'); }
-  }
+/* ============================================================
+   HAMBURGER MENU
+   ============================================================ */
+const hamburger=document.getElementById('hamburgerBtn');
+const mainNav=document.getElementById('mainNav');
+hamburger.addEventListener('click',()=>{
+  const open=mainNav.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded',open);
+  hamburger.textContent=open?'✕':'☰';
 });
-document.getElementById('copyLinkBtn').addEventListener('click', async ()=>{
-  try{ await navigator.clipboard.writeText(location.href); showToast('Link copied to clipboard!'); }catch(e){ showToast('Could not copy link'); }
+mainNav.addEventListener('click',e=>{ if(e.target.tagName==='A'&&mainNav.classList.contains('open')){ mainNav.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); hamburger.textContent='☰'; } });
+
+/* ============================================================
+   BANNER DISMISS
+   ============================================================ */
+const banner=document.getElementById('banner');
+if(localStorage.getItem('kvsc-banner-dismissed')==='1') banner.style.display='none';
+document.getElementById('bannerClose').addEventListener('click',()=>{ banner.style.display='none'; localStorage.setItem('kvsc-banner-dismissed','1'); });
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+const backToTop=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>backToTop.classList.toggle('show',window.scrollY>400),{passive:true});
+backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+let toastTimer=null;
+function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),2400); }
+
+/* ============================================================
+   SHARE / COPY
+   ============================================================ */
+document.getElementById('shareBtn').addEventListener('click',async()=>{
+  const d={title:'KVSC Study Materials',text:'KVSC College study materials portal',url:location.href};
+  if(navigator.share){ try{await navigator.share(d);}catch(e){} }
+  else{ try{await navigator.clipboard.writeText(location.href);showToast('Link copied!');}catch(e){showToast('Could not copy link');} }
+});
+document.getElementById('copyLinkBtn').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(location.href);showToast('Link copied!');}catch(e){showToast('Could not copy link');}
 });
 
-/* ---------- Quick contact form -> WhatsApp ---------- */
-
-document.getElementById('quickFormSend').addEventListener('click', ()=>{
-  const name = document.getElementById('fName').value.trim();
-  const mobile = document.getElementById('fMobile').value.trim();
-  const sem = document.getElementById('fSem').value;
-  const subject = document.getElementById('fSubject').value.trim();
-  const msg = document.getElementById('fMsg').value.trim();
-  if(!name){ document.getElementById('fName').focus(); return; }
-  const text = `Hello, my name is ${name}.\nMobile: ${mobile||'-'}\nSemester: ${sem||'-'}\nSubject: ${subject||'-'}\nMessage: ${msg||'-'}`;
-  window.open(waLink(text), '_blank');
+/* ============================================================
+   QUICK CONTACT FORM
+   ============================================================ */
+document.getElementById('quickFormSend').addEventListener('click',()=>{
+  const name=document.getElementById('fName').value.trim();
+  const mobile=document.getElementById('fMobile').value.trim();
+  const sem=document.getElementById('fSem').value;
+  const subject=document.getElementById('fSubject').value.trim();
+  const msg=document.getElementById('fMsg').value.trim();
+  if(!name){document.getElementById('fName').focus();return;}
+  const text=`Hello, my name is ${name}.\nMobile: ${mobile||'-'}\nSemester: ${sem||'-'}\nSubject: ${subject||'-'}\nMessage: ${msg||'-'}`;
+  window.open(waLink(text),'_blank');
 });
 
-/* ---------- Init ---------- */
-
-document.getElementById('year').textContent = new Date().getFullYear();
+/* ============================================================
+   INIT
+   ============================================================ */
+document.getElementById('year').textContent=new Date().getFullYear();
 initTheme();
+initParallax();
 (async function init(){
-  await tryLoadFromSheet(); // falls back to built-in sample data automatically if not set up / offline
+  await tryLoadFromSheet();
   renderAll();
   applyFilters();
+  await tryLoadFaculty();
+  await tryLoadGallery();
 })();
 </script>
 </body>
